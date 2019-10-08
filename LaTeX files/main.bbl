@@ -1,0 +1,82 @@
+\begin{thebibliography}{10}
+
+\bibitem{osseiran2014scenarios}
+Afif~Osseiran \textit{et al.}
+\newblock {``Scenarios for 5G mobile and wireless communications: the vision of
+  the METIS project"}.
+\newblock {\em IEEE Comm. Magazine}, 52(5):26--35, 2014.
+
+\bibitem{itu2019architecture}
+{ITU-T Rec. Y.3172, ``Architectural framework for machine learning in future
+  networks including IMT-2020", 2019}.
+
+\bibitem{3gpp2019study}
+3GPP TR 23.791~V16.2.0 (2019-06).
+\newblock {``Study of Enablers for Network Automation for 5G"}.
+\newblock 2019.
+
+\bibitem{etsi2019architecture}
+ETSI GS ZSM 002~V0.13.5 (2019-07).
+\newblock {Draft ``Zero-touch network and Service Management (ZSM); Reference
+  Architecture"}.
+\newblock 2019.
+
+\bibitem{itu2019use}
+{ITU-T Y.ML-IMT2020-Use-Cases (TD407/WP1)}.
+\newblock 2019.
+
+\bibitem{mitchell1997machine}
+Tom~M Mitchell et~al.
+\newblock {``Machine learning"}.
+\newblock {\em Burr Ridge, IL: McGraw Hill}, 45(37):870--877, 1997.
+
+\bibitem{jiang2016machine}
+Chunxiao~Jiang \textit{et al.}
+\newblock {Machine learning paradigms for next-generation wireless networks}.
+\newblock {\em IEEE Wireless Comm.}, 24(2):98--105, 2016.
+
+\bibitem{zhang2019deep}
+Chaoyun Zhang, Paul Patras, and Hamed Haddadi.
+\newblock {``Deep learning in mobile and wireless networking: A survey"}.
+\newblock {\em IEEE Comm. Surveys \& Tutorials}, 2019.
+
+\bibitem{usama2019unsupervised}
+Muhammad~Usama \textit{et al.}
+\newblock {``Unsupervised machine learning for networking: Techniques,
+  applications and research challenges"}.
+\newblock {\em IEEE Access}, 7:65579--65615, 2019.
+
+\bibitem{bi2015wireless}
+Suzhi~Bi \textit{et al.}
+\newblock {``Wireless communications in the era of big data"}.
+\newblock {\em IEEE Comm. Magazine}, 53(10):190--199, 2015.
+
+\bibitem{chih2017big}
+I~Chih-Lin \textit{et al.}
+\newblock {``The Big-Data-Driven Intelligent Wireless Network: Architecture,
+  Use Cases, Solutions, and Future Trends"}.
+\newblock {\em IEEE Vehic. Tech. Magazine}, 12(4):20--29, 2017.
+
+\bibitem{wang2018machine}
+Mowei~Wang \textit{et al.}
+\newblock {``Machine learning for networking: Workflow, advances and
+  opportunities"}.
+\newblock {\em IEEE Network}, 32(2):92--99, 2018.
+
+\bibitem{itu2019data}
+{ITU-T Y.ML-IMT2020-Data-Handling (TD409/WP1)}.
+\newblock 2019.
+
+\bibitem{barrachina2019komondor}
+Sergio Barrachina-Mu{\~n}oz \textit{et al.}
+\newblock {``Komondor: a Wireless Network Simulator for Next-Generation
+  High-Density WLANs"}.
+\newblock In {\em 2019 Wireless Days (WD)}, pages 1--8. IEEE, 2019.
+
+\bibitem{lin2017deep}
+Yujun~Lin \textit{et al.}
+\newblock {``Deep gradient compression: Reducing the communication bandwidth
+  for distributed training"}.
+\newblock {\em arXiv preprint arXiv:1712.01887}, 2017.
+
+\end{thebibliography}
