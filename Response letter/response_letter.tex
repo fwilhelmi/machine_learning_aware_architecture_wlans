@@ -1,0 +1,250 @@
+% Copyright Javier SÃ¡nchez-Monedero.
+% Please report bugs and suggestions to (jsanchezm at uco.es)
+%
+% This document is released under a Creative Commons Licence 
+% CC-BY-SA (http://creativecommons.org/licenses/by-sa/3.0/) 
+%
+% BASIC INSTRUCTIONS: 
+% 1. Load and set up proper language packages
+% 2. Complete the paper data commands
+% 3. Use commands \rcomment and \newtext as shown in the example
+
+\documentclass[a4paper,twoside,11pt]{reviewresponse}
+
+% 1. Load and set up proper language packages
+%\usepackage[utf8x]{inputenc}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage[english]{babel}
+\newenvironment{bottompar}{\par\vspace*{\fill}}{\clearpage}
+\usepackage{setspace}
+\usepackage{graphicx}
+\usepackage{caption}
+\usepackage{epstopdf}
+\usepackage{enumitem}% http://ctan.org/pkg/enumitem
+\usepackage{amsmath} % for the "align" and "align*" environments
+\usepackage{tabularx}
+\usepackage{subcaption}
+\usepackage{booktabs}
+\usepackage{multirow}
+\usepackage{soul}
+\usepackage{mathtools}
+\usepackage{epsfig}   
+\DeclarePairedDelimiter{\ceil}{\lceil}{\rceil}
+
+\def\Plus{\texttt{+}}
+
+% 2. Complete the paper data
+\newcommand{\myAuthors}{Francesc~Wilhelmi, Sergio~Barrachina-Mu\~noz, Boris~Bellalta,\\ Cristina~Cano, Anders~Jonsson \& Vishnu-Ram}
+\newcommand{\myAuthorsShort}{Sergio~Barrachina-Mu\~noz, Francesc~Wilhelmi, Boris~Bellalta}
+\newcommand{\myEmail}{francisco.wilhelmi@upf.edu}
+\newcommand{\myTitle}{Response Letter of "A Flexible Machine Learning-Aware Architecture for Future WLANs"}
+\newcommand{\myShortTitle}{Response letter to reviewers}
+\newcommand{\myJournal}{IEEE Communications Magazine}
+\newcommand{\myDept}{Dept. of Information and Communication Technologies \\ Universitat Pompeu Fabra (UPF), Barcelona}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%\usepackage[linktoc=all]{hyperref}
+\usepackage[linktoc=all,bookmarks,bookmarksopen=true,bookmarksnumbered=true]{hyperref}
+
+\hypersetup{
+	pdfauthor = {\myAuthorsShort},
+	pdftitle = {\myTitle},
+	pdfsubject = {\myJournal\xspace},
+	colorlinks = true,
+	linkcolor=black!70!green,       % color of internal links
+	citecolor=black!70!green,       % color of links to bibliography
+	filecolor=magenta,      		% color of file links
+	urlcolor=black!70!green           % color of external links
+}
+
+\begin{document}
+	
+	\thispagestyle{plain}
+	
+	\begin{center}
+		{\LARGE\myTitle} \vspace{0.5cm} \\
+		{\large\myJournal} \vspace{0.5cm} \\
+		\myAuthors \\
+		\url{\myEmail} \vspace{0.3cm} \\
+		\myDept
+	\end{center}
+	
+	\medskip
+	
+	\medskip
+	
+	This manuscript is a revised version of the manuscript with id COMMAG-19-00637. We would like to thank the reviewers for their comments, which have allowed us to improve our submission, as well as the editor for allowing us to revise our work for publication in this magazine. We have performed a thorough revision of the paper to address all the concerns raised by the reviewers. In this letter we provide detailed responses to all the comments provided by the reviewers and point out the changes in the revised version of our manuscript (which are highlighted in \textcolor{blue}{blue} to facilitate revision). In addition, we improved some parts regarding writing and readability (highlighted in \textcolor{orange}{orange}). Before providing the specific response to each one of the reviewers’ comments, we next summarize the main changes introduced in the new version of the article:
+    
+    \begin{itemize}
+    	\item We reinforced our message in relation to the contributions of this paper. \textcolor{red}{Not done yet.}
+    	\item We extended the use case in Section IV.B to highlight the benefits of using ML techniques in WLANs through the presented logical architecture. In this regard, we provided numerical results for the ML-assisted AP association procedure.    \textcolor{red}{Not done yet.}	
+        \item We corrected several writing errors (grammatical, spelling, use of abbreviation, etc.).\textcolor{red}{Not done yet.}
+        \item We reprocessed some parts of the text with the aim of facilitating its readability. \textcolor{red}{Not done yet.}
+    \end{itemize}
+    
+    We hope the changes made in the revised version of this manuscript provide a clarification on the issues previously raised.  
+    
+    With best regards,
+   	\begin{bottompar}
+		\begin{flushright}
+			%Francesc~Wilhelmi, Sergio~Barrachina-Mu\~noz, Boris~Bellalta,\\ Cristina~Cano, Anders~Jonsson \& Vishnu~Ram\\
+			The authors\\
+			Barcelona (Spain), \today
+		\end{flushright}
+	\end{bottompar}
+	
+	
+	\section{Reviewer \#1}
+	
+%	\rcomment{
+%		This paper introduced the ITU’s unified architecture for future networks and outlined several challenges in IEEE 802.11 WLANs. Furthermore, a realization of machine learning architecture for IEEE 802.11 WLANs was proposed. The detailed comments are summarized as follows.
+%		\label{com:1_0}
+%	}	
+%
+%	\textbf{Response.} We thank the reviewer for its time and detailed comments, which are next addressed individually.
+		
+	%%%%%%%%%%%%%%%%
+	% Comment R1.1
+	%%%%%%%%%%%%%%%%
+	\rcomment{
+		In Table I, please give the full meaning of “ARIMA” and “SARSA”.
+		
+		In “Page 2, right column, Line 52”, “technique” should be modified as “techniques”.
+		
+		In Figure 2, “susbsystem” should be modified as “subsystem”.
+		
+		\label{com:1_1}
+	}
+	
+	\textbf{Response.} We thank the reviewer for detecting these mistakes, which allowed us to improve the article. We have now corrected all these errors in the newest version of the document.
+	
+	%%%%%%%%%%%%%%%%
+	% Comment R1.4
+	%%%%%%%%%%%%%%%%
+	\rcomment{
+		In Figure 2, can you explain why the INTENT entity in the management subsystem does not have input/output interface.
+		\label{com:1_4}
+	}
+	
+	\textbf{Response.} We agree that the definition of the intent was a little ambiguous in our previous version. Just for clarification, the intent is the declaration of the ML use case in terms of entities' initialization, but also provides information related to policies and constraints. Generally speaking, the intent can be seen as a “properties“ file (written in meta-language) that the MLFO uses for several purposes. Therefore, it does not contain any input/output interface.
+	
+	To improve the document, we have first re-written Section IIIA. Besides, we have added a sentence to Fig. 2's caption with the aim of clarifying the role of the ML intent: “Entities contain input/output interfaces for communication, while the ML intent is a declarative file with information related to the use case.“
+	
+	%%%%%%%%%%%%%%%%
+	% Comment R1.5
+	%%%%%%%%%%%%%%%%
+	\rcomment{
+		In “Page 4, right column, Line 26”, “conducting” is right?
+		\label{com:1_5}
+	}
+	
+	\textbf{Response.} We have replaced “conducting a simulation” by “run simulations”,  which fits better the context.
+	
+	\section{Reviewer \#2}
+	
+	\rcomment{
+		The paper is in general well-written, providing a lot of information in a tutorial mode, but also present innovative solutions.  The state of the art review is quite comprehensive, while a high-level description for the application of ML in WLANs is also provided. Also, the challenges for applying ML in WLANs are clear and, in my opinion, would help the interested reader. My only main concern lies on the presentation (if possible) of a use-case scenario or an example, in order for the reader to realize the benefits of applying ML techniques to WLANs.
+		\label{com:2_0}
+	}	
+	
+	\textbf{Response.} \textcolor{red}{Link this with comment R3.3, where we aim at presenting some results for a specific use case.}
+	
+	%%%%%%%%%%%%%%%%
+	% Comment R2.1
+	%%%%%%%%%%%%%%%%
+	
+	\rcomment{
+		Please follow the same format in all cases, when defining the abbreviations
+		\label{com:2_1}
+	}
+	
+	\textbf{Response.} We apology for the inconsistent use of abbreviations of our previous version. We have now corrected this by using lower case to common names abbreviations. For instance, ”Artificial Intelligence” is now ”artificial intelligence”. As an exception, we keep using upper case for proper names (e.g., International Telecommunications Union, Focus Group on Machine Learning for Future Networks including 5G, 3rd Generation Partnership Project).
+	
+	All the changes regarding the format of abbreviations have been highlighted in blue.
+	
+	%%%%%%%%%%%%%%%%
+	% Comment R2.2
+	%%%%%%%%%%%%%%%%
+	
+	\rcomment{
+		I believe that the format “Fig. X” should be used in all cases, even at the beginning of a sentence.
+		\label{com:2_2}
+	}
+	
+	\textbf{Response.} We thank the reviewer for that comment, which made us re-check this particular rule, along with some other ones. In this case, we found that the current usage of "Fig." and "Figure" is compliant with the IEEE ComSoc style guide provided at \url{https://www.comsoc.org/media/801/download}. In page 5, it is stated: \textit{In the body of text, the word “Figure” is used only as the first word of a sentence. Elsewhere, it is abbreviated to “Fig.”}.
+	
+	%%%%%%%%%%%%%%%%
+	% Comment R2.3
+	%%%%%%%%%%%%%%%%
+	
+	\rcomment{
+		The list of ML methods in Table I is impressive, containing all cases (to the best of my knowledge). I only miss applications of the “Markov Decision Process” family of algorithms for various applications (e.g. data offloading)
+		\label{com:2_3}
+	}
+	
+	\textbf{Response.} We thank the reviewer for enriching the list of methods provided in Table I. We have now added Markov decision processes in the family of reinforcement learning methods, as an example of ML method for traffic offloading and energy efficiency. Moreover, we added further examples of input data to complement these cases: server occupation and power consumption. 
+	
+	
+	\section{Reviewer \#3}
+	
+	%%%%%%%%%%%%%%%%
+	% Comment R3.1
+	%%%%%%%%%%%%%%%%
+	\rcomment{
+		The language needs further polishing.
+		\label{com:3_1}
+	}
+	
+	\textbf{Response.} We have thoroughly revised the entire document with the aim of improving the writing style and fixing language errors. In this case, all the language-related changes have been highlighted in \textcolor{orange}{orange}. 
+	
+	%%%%%%%%%%%%%%%%
+	% Comment R3.2
+	%%%%%%%%%%%%%%%%
+	\rcomment{
+		Index terms should be placed in alphabetic order. 
+		\label{com:3_2}
+	}
+	
+	\textbf{Response.} Done.
+	
+	%%%%%%%%%%%%%%%%
+	% Comment R3.3
+	%%%%%%%%%%%%%%%%
+	\rcomment{
+		Most of the paper reports well-known information and only  Section IV.B is devoted to discussing the building blocks of the new architecture. As a consequence, the technical contribution of this paper is quite limited.
+		\label{com:3_3}
+	}
+	
+	\textbf{Response.} \textcolor{red}{This comment is the most challenging one. I think we should clarify here the actual contribution of the paper and hope that the reviewer becomes satisfied with our explanation. See proposal of response below.}
+	
+	We really appreciate this comment, which allowed us to clarify the actual contribution of the paper. Despite some of our contributions are of disclose kind (informative), we believe on their suitability for a magazine paper. Regarding the technical aspect, we have improved the document thanks to comments R2.1 and R3.4, whereby we have provided numerical results to show the benefits of applying ML in future WLANs. In particular, our main contributions are:
+	\begin{itemize}
+		\item $[$Disclosure$]$ Provide an overview of the ITU-T's ML-aware architecture for 5G networks and beyond.
+		\item $[$Disclosure$]$ Devise and discuss the potential of ML application to future communications. 
+		\item $[$Technical$]$ Provide a set of use cases to show the applicability of the ML architecture to IEEE 802.11 WLANs.
+		\item $[$Technical$]$ Provide a realization of the ITU-T's architecture for IEEE 802.11 WLANs, and point out the major technical challenges and opportunities to that end. 
+		\item $[$Technical - NEW$]$ Show the superiority of the ML approach in front of other paradigms through numerical results. 
+	\end{itemize}
+		
+	%%%%%%%%%%%%%%%%
+	% Comment R3.4
+	%%%%%%%%%%%%%%%%
+	\rcomment{
+		Some comparative results that reveal the superiority of the architecture needs to be included in a revised article.
+		\label{com:3_4}
+	}
+	
+	\textbf{Response.} \textcolor{red}{Link this with comment R2.1. Ideas: 1) simulation for AP association (simulate delays in centralized, distributed and decentralized approaches), 2) testbed with APs, 3) high-level network slicing with OFDMA (Matlab?) ...}
+	
+	\textcolor{red}{Text from Lozano's paper on 5G: ``The results given in this	article have been obtained by considering the current state-of-the-art understanding of the technologies considered. However, we emphasize that at this point it is not yet possible to provide a fully realistic assessment and a comparison with deployed 4G systems. Undeniably, some research efforts are still in	the so-called hype phase, and much work is still required before a steady	understanding of the performance and the required enablers can be reached''}
+	
+	\clearpage
+	
+%	% BIBLIOGRAPHY
+%	% Uncomment in case references are needed
+%	\bibliographystyle{apalike}
+%	\bibliography{bib}
+	
+\end{document}

@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.17 (TeX Live 2016) (preloaded format=pdflatex 2016.12.1)  21 OCT 2019 16:52
+This is pdfTeX, Version 3.14159265-2.6-1.40.17 (TeX Live 2016) (preloaded format=pdflatex 2016.12.1)  9 JAN 2020 11:27
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -153,36 +153,77 @@ Package: amsfonts 2013/01/14 v3.01 Basic AMSFonts support
 LaTeX Font Info:    Overwriting math alphabet `\mathfrak' in version `bold'
 (Font)                  U/euf/m/n --> U/euf/b/n on input line 106.
 )
+(/usr/local/texlive/2016/texmf-dist/tex/latex/graphics/color.sty
+Package: color 2016/05/09 v1.1c Standard LaTeX Color (DPC)
+
+(/usr/local/texlive/2016/texmf-dist/tex/latex/graphics-cfg/color.cfg
+File: color.cfg 2016/01/02 v1.6 sample color configuration
+)
+Package color Info: Driver file: pdftex.def on input line 144.
+)
+(/usr/local/texlive/2016/texmf-dist/tex/latex/xcolor/xcolor.sty
+Package: xcolor 2016/05/11 v2.12 LaTeX color extensions (UK)
+
+(/usr/local/texlive/2016/texmf-dist/tex/latex/graphics-cfg/color.cfg
+File: color.cfg 2016/01/02 v1.6 sample color configuration
+)
+Package xcolor Info: Driver file: pdftex.def on input line 225.
+LaTeX Info: Redefining \color on input line 709.
+Package xcolor Info: Model `cmy' substituted by `cmy0' on input line 1348.
+Package xcolor Info: Model `hsb' substituted by `rgb' on input line 1352.
+Package xcolor Info: Model `RGB' extended on input line 1364.
+Package xcolor Info: Model `HTML' substituted by `rgb' on input line 1366.
+Package xcolor Info: Model `Hsb' substituted by `hsb' on input line 1367.
+Package xcolor Info: Model `tHsb' substituted by `hsb' on input line 1368.
+Package xcolor Info: Model `HSB' substituted by `hsb' on input line 1369.
+Package xcolor Info: Model `Gray' substituted by `gray' on input line 1370.
+Package xcolor Info: Model `wave' substituted by `hsb' on input line 1371.
+
+(/usr/local/texlive/2016/texmf-dist/tex/latex/graphics/dvipsnam.def
+File: dvipsnam.def 2015/12/30 v3.0k Driver-dependent file (DPC,SPQR)
+))
+(/usr/local/texlive/2016/texmf-dist/tex/latex/soul/soul.sty
+Package: soul 2003/11/17 v2.4 letterspacing/underlining (mf)
+\SOUL@word=\toks17
+\SOUL@lasttoken=\toks18
+\SOUL@cmds=\toks19
+\SOUL@buffer=\toks20
+\SOUL@token=\toks21
+\SOUL@spaceskip=\skip44
+\SOUL@ttwidth=\dimen128
+\SOUL@uldp=\dimen129
+\SOUL@ulht=\dimen130
+)
 (./flexible_ml_architecture_wlans.aux)
 \openout1 = `flexible_ml_architecture_wlans.aux'.
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 355.
-LaTeX Font Info:    ... okay on input line 355.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 355.
-LaTeX Font Info:    ... okay on input line 355.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 355.
-LaTeX Font Info:    ... okay on input line 355.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 355.
-LaTeX Font Info:    ... okay on input line 355.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 355.
-LaTeX Font Info:    ... okay on input line 355.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 355.
-LaTeX Font Info:    ... okay on input line 355.
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 357.
+LaTeX Font Info:    ... okay on input line 357.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 357.
+LaTeX Font Info:    ... okay on input line 357.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 357.
+LaTeX Font Info:    ... okay on input line 357.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 357.
+LaTeX Font Info:    ... okay on input line 357.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 357.
+LaTeX Font Info:    ... okay on input line 357.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 357.
+LaTeX Font Info:    ... okay on input line 357.
 
 -- Lines per column: 58 (exact).
 (/usr/local/texlive/2016/texmf-dist/tex/context/base/mkii/supp-pdf.mkii
 [Loading MPS to PDF converter (version 2006.09.02).]
 \scratchcounter=\count95
-\scratchdimen=\dimen128
+\scratchdimen=\dimen131
 \scratchbox=\box28
 \nofMPsegments=\count96
 \nofMParguments=\count97
-\everyMPshowfont=\toks17
+\everyMPshowfont=\toks22
 \MPscratchCnt=\count98
-\MPscratchDim=\dimen129
+\MPscratchDim=\dimen132
 \MPnumerator=\count99
 \makeMPintoPDFobject=\count100
-\everyMPtoPDFconversion=\toks18
+\everyMPtoPDFconversion=\toks23
 ) (/usr/local/texlive/2016/texmf-dist/tex/generic/oberdiek/pdftexcmds.sty
 Package: pdftexcmds 2016/05/10 v0.21 Utility functions of pdfTeX for LuaTeX (HO
 )
@@ -230,45 +271,65 @@ G,.JBIG2,.JB2,.eps]
 File: epstopdf-sys.cfg 2010/07/13 v1.3 Configuration of (r)epstopdf for TeX Liv
 e
 ))
-LaTeX Font Info:    Try loading font information for U+msa on input line 457.
+LaTeX Font Info:    Try loading font information for U+msa on input line 456.
 
 (/usr/local/texlive/2016/texmf-dist/tex/latex/amsfonts/umsa.fd
 File: umsa.fd 2013/01/14 v3.01 AMS symbols A
 )
-LaTeX Font Info:    Try loading font information for U+msb on input line 457.
+LaTeX Font Info:    Try loading font information for U+msb on input line 456.
 
 (/usr/local/texlive/2016/texmf-dist/tex/latex/amsfonts/umsb.fd
 File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 )
-Underfull \hbox (badness 10000) in paragraph at lines 460--460
+Underfull \hbox (badness 10000) in paragraph at lines 459--459
 []\OT1/ptm/m/n/8 Supervised
  []
 
 
-Underfull \hbox (badness 4108) in paragraph at lines 460--460
+Underfull \hbox (badness 4108) in paragraph at lines 459--459
 []\OT1/ptm/m/n/8 Traffic fore-cast-ing, mo-bil-ity pat-tern
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 461--461
+Underfull \hbox (badness 10000) in paragraph at lines 460--460
 []\OT1/ptm/m/n/8 Unsupervised
  []
 
 
-Underfull \hbox (badness 7344) in paragraph at lines 461--461
-[]\OT1/ptm/m/n/8 Clustering, Mix-ture mod-els, Gen-er-a-tive
+Underfull \hbox (badness 1354) in paragraph at lines 460--460
+[]\OT1/ptm/m/n/8 traffic clas-si-fi-ca-tion, vir-tual topol-ogy
  []
 
 
-Overfull \hbox (1.10536pt too wide) in paragraph at lines 462--462
+Overfull \hbox (1.10536pt too wide) in paragraph at lines 461--461
 []\OT1/ptm/m/n/8 Reinforcement
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 461--461
+[]\OT1/ptm/m/n/8 Monte Carlo, Q-learning, []state-action-
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 461--461
+\OT1/ptm/m/n/8 reward-state-action (SARSA)[], deep Q
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 461--461
+\OT1/ptm/m/n/8 learn-ing au-toma-ton, []Markov de-ci-sion
+ []
+
+
+Underfull \hbox (badness 1902) in paragraph at lines 461--461
+\OT1/ptm/m/n/8 lay), []server oc-cu-pa-tion, power con-
  []
 
 [1{/usr/local/texlive/2016/texmf-var/fonts/map/pdftex/updmap/pdftex.map}
 
 
 ]
-Underfull \hbox (badness 3746) in paragraph at lines 513--514
+Underfull \hbox (badness 3746) in paragraph at lines 512--513
 []\OT1/ptm/m/n/10 Support a mas-sive amount of con-nected de-vices
  []
 
@@ -276,15 +337,15 @@ Underfull \hbox (badness 3746) in paragraph at lines 513--514
 File: network_slicing_ofdma.pdf Graphic file (type pdf)
 
 <use network_slicing_ofdma.pdf>
-Package pdftex.def Info: network_slicing_ofdma.pdf used on input line 538.
+Package pdftex.def Info: network_slicing_ofdma.pdf used on input line 537.
 (pdftex.def)             Requested size: 252.0pt x 161.86562pt.
 
-<itu_ml_architecture.pdf, id=18, 481.8pt x 283.0575pt>
+<itu_ml_architecture.pdf, id=18, 481.8pt x 282.0939pt>
 File: itu_ml_architecture.pdf Graphic file (type pdf)
 
 <use itu_ml_architecture.pdf>
-Package pdftex.def Info: itu_ml_architecture.pdf used on input line 568.
-(pdftex.def)             Requested size: 258.0pt x 151.57895pt.
+Package pdftex.def Info: itu_ml_architecture.pdf used on input line 566.
+(pdftex.def)             Requested size: 258.0pt x 151.06293pt.
  [3 <./network_slicing_ofdma.pdf
 
 pdfTeX warning: /Library/TeX/texbin/pdflatex (file ./network_slicing_ofdma.pdf)
@@ -295,7 +356,7 @@ File: overview_learning_approaches.pdf Graphic file (type pdf)
 
 <use overview_learning_approaches.pdf>
 Package pdftex.def Info: overview_learning_approaches.pdf used on input line 61
-3.
+1.
 (pdftex.def)             Requested size: 252.0pt x 222.72096pt.
  [4 <./itu_ml_architecture.pdf
 
@@ -307,7 +368,10 @@ Underfull \hbox (badness 2293) in paragraph at lines 639--640
 \OT1/ptm/m/n/10 pu-ta-tion and stor-age re-sources may also be lim-
  []
 
-[5 <./overview_learning_approaches.pdf
+
+Underfull \vbox (badness 1117) has occurred while \output is active []
+
+ [5 <./overview_learning_approaches.pdf
 
 pdfTeX warning: /Library/TeX/texbin/pdflatex (file ./overview_learning_approach
 es.pdf): PDF inclusion: invalid other resource which is no dict (key 'ProcSets'
@@ -341,13 +405,13 @@ Underfull \hbox (badness 4967) in paragraph at lines 86--89
 
 ) [7] (./flexible_ml_architecture_wlans.aux) ) 
 Here is how much of TeX's memory you used:
- 2462 strings out of 493014
- 40970 string characters out of 6133351
- 111025 words of memory out of 5000000
- 5974 multiletter control sequences out of 15000+600000
- 43958 words of font info for 88 fonts, out of 8000000 for 9000
+ 3181 strings out of 493014
+ 49912 string characters out of 6133351
+ 129656 words of memory out of 5000000
+ 6674 multiletter control sequences out of 15000+600000
+ 44271 words of font info for 89 fonts, out of 8000000 for 9000
  1144 hyphenation exceptions out of 8191
- 37i,9n,24p,1132b,215s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 38i,10n,35p,1392b,247s stack positions out of 5000i,500n,10000p,200000b,80000s
 {/usr/local/texlive/2016/texmf-di
 st/fonts/enc/dvips/base/8r.enc}</usr/local/texlive/2016/texmf-dist/fonts/type1/
 public/amsfonts/cm/cmmi10.pfb></usr/local/texlive/2016/texmf-dist/fonts/type1/p
@@ -358,7 +422,7 @@ msfonts/symbols/msbm10.pfb></usr/local/texlive/2016/texmf-dist/fonts/type1/urw/
 times/utmb8a.pfb></usr/local/texlive/2016/texmf-dist/fonts/type1/urw/times/utmb
 i8a.pfb></usr/local/texlive/2016/texmf-dist/fonts/type1/urw/times/utmr8a.pfb></
 usr/local/texlive/2016/texmf-dist/fonts/type1/urw/times/utmri8a.pfb>
-Output written on flexible_ml_architecture_wlans.pdf (7 pages, 990901 bytes).
+Output written on flexible_ml_architecture_wlans.pdf (7 pages, 993988 bytes).
 PDF statistics:
  263 PDF objects out of 1000 (max. 8388607)
  155 compressed objects within 2 object streams
