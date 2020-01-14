@@ -20,7 +20,8 @@
 %     an STA would connect to the network.
 %-------------------------------------------------------------------------
 
-function [M,N,routing_table,S_STA,D_STA,U_STA,A_STA,S_R,D_R,U_R,A_R, NEW_MATRIX] = TopologySTAs(map_STA,M,N,WIFI_std,f_backbone,f_access,PL_access,Pt,Sens,L,TPHY,SIFS,DIFS,Tslot,score_mode,max_STA_per_R,w_a,w_b,w_c,channel_load_ext)
+function [M,N,routing_table,S_STA,D_STA,U_STA,A_STA,S_R,D_R,U_R,A_R, NEW_MATRIX] = TopologySTAs(net,...
+        map_STA,M,N,WIFI_std,f_backbone,f_access,PL_access,Pt,Sens,L,TPHY,SIFS,DIFS,Tslot,score_mode,max_STA_per_R,w_a,w_b,w_c,channel_load_ext)
 
 % (Note that the first row of M corresponds to the AP, filled with 0s)
 % M = [posX    posY    #hops   #Children_R  Parent_Index    Delay   Rate   Channel     #Children_S   lambda_R   DBPS    Airtime access  Airtime backbone]
@@ -97,7 +98,8 @@ for m=1:sta
             PL = PathLossModel(f_access,D,PL_access);
             RSSI_map(k) = Pt - PL;
         end
-        N(m,3) = APExtenderSelector(M,N,m,f_access,RSSI_map,Pt,Sens,L,TPHY,SIFS,DIFS,Tslot,N(m,9),max_STA_per_R,w_a,w_b,w_c);
+        [N(m,3), predicted_tpt] = APExtenderSelector(net,...
+            M,N,m,f_access,RSSI_map,Pt,Sens,L,TPHY,SIFS,DIFS,Tslot,N(m,9),max_STA_per_R,w_a,w_b,w_c);
     end
     
     if (N(m,3) ~= 0)                %The STA has found a parent (1:AP/Other:Extender)
@@ -144,12 +146,7 @@ for m=1:sta
         active_STA_CH = find((N(:,3) ~=0) & (N(:,4) == dif_ch(i)));
         if (isempty(active_STA_CH) == 0)
             [S_STA(active_STA_CH),D_STA(active_STA_CH),U_STA(active_STA_CH),A_STA(active_STA_CH)] = WIFIModel(N(active_STA_CH,6),L,N(active_STA_CH,7),N(active_STA_CH,5),f_access,WIFI_std);
-            A_CH(i) = sum(A_STA(active_STA_CH)) + channel_load_ext(dif_ch(i));    
-                           
-%             if (A_CH(i) > 1)
-%                 A_CH(i) = 1;
-%             end
-            
+            A_CH(i) = sum(A_STA(active_STA_CH)) + channel_load_ext(dif_ch(i));               
             for j=1:dev
                 if (dif_ch(i) == M(j,8))
                     M(j,12) = A_CH(i);
@@ -157,12 +154,19 @@ for m=1:sta
             end
         end
     end
-       
+               
     if S_STA == 0
         NEW_MATRIX(m,8) = 0;    % Throughput [bps]
     else 
         NEW_MATRIX(m,8) = S_STA(m)/L;    % Throughput [pkt/s]
     end
+    
+    if score_mode == 101
+        disp(['Predicted value: ' num2str(predicted_tpt(N(m,3)-1))])
+        disp(['Actual value: ' num2str((NEW_MATRIX(m,8))')])
+    end
+    
+    NEW_MATRIX(m,9) = predicted_tpt(N(m,3)-1) - (NEW_MATRIX(m,8)*L*1e-6);
     
     %Computing resulting generation rate per each Extender in function of STAs
     if (N(m,3) > 0)

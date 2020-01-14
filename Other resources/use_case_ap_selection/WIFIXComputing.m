@@ -5,7 +5,8 @@
 %                      operating under the defined configuration
 %-------------------------------------------------------------------------
 
-function [S_STA,E_T,E_T_ok,D_avg,D_max,SS_avg,SS_min,assoc_STA,assoc_STA_AP,assoc_STA_E] = WIFIXComputing(map_R,map_STA,M,N,L,Pt,Sens,f_backbone,f_access,PL_backbone,PL_access,ext_conn_alg,score_mode,w_a,w_b,w_c,channel_load_ext)
+function [S_STA,E_T,E_T_ok,D_avg,D_max,SS_avg,SS_min,assoc_STA,assoc_STA_AP,assoc_STA_E, NEW_MATRIX] = WIFIXComputing(net,...
+        map_R,map_STA,M,N,L,Pt,Sens,f_backbone,f_access,PL_backbone,PL_access,ext_conn_alg,score_mode,w_a,w_b,w_c,channel_load_ext)
 
 % Time Parameters
 TPHY = 40E-6;                       %PHY time
@@ -35,9 +36,9 @@ end
 
 %disp('*********************************');
 %disp('Computing Topology of Stations');
-[M,N,routing_table,S_STA,D_STA,U_STA,A_STA,S_R,D_R,U_R,A_R, NEW_MATRIX] = TopologySTAs(map_STA,M,N,WIFI_std,f_backbone,f_access,PL_access,Pt,Sens,L,TPHY,SIFS,DIFS,Tslot,score_mode,max_STA_per_R,w_a,w_b,w_c,channel_load_ext);
-
-SaveMatrixToFile(NEW_MATRIX);
+[M,N,routing_table,S_STA,D_STA,U_STA,A_STA,S_R,D_R,U_R,A_R, NEW_MATRIX] = TopologySTAs(net,...
+    map_STA,M,N,WIFI_std,f_backbone,f_access,PL_access,Pt,Sens,L,TPHY,SIFS,DIFS,Tslot,score_mode,max_STA_per_R,w_a,w_b,w_c,channel_load_ext);
+%SaveMatrixToFile(NEW_MATRIX);
 
 %format shortG 
 %M

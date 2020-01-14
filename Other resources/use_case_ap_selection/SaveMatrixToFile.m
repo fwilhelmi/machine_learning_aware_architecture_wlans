@@ -6,7 +6,7 @@
 
 function [] = SaveMatrixToFile(m)
 
-filename = 'output_stas.csv';
+filename = 'output_stas_polas.csv';
 
 if isfile(filename)
     dlmwrite(filename, m, 'delimiter', ',', '-append');

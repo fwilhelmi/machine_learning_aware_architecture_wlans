@@ -4,7 +4,8 @@
 % APExtenderSelector.m --> Selects the best AP/Extender
 %-------------------------------------------------------------------------
 
-function S = APExtenderSelector(M,N,sta_id,f_access,RSSI_map,Pt,Sens,L,TPHY,SIFS,DIFS,Tslot,score_mode,max_STA_per_R,w_a,w_b,w_c)
+function [S, predicted_tpt] = APExtenderSelector(net,...
+        M,N,sta_id,f_access,RSSI_map,Pt,Sens,L,TPHY,SIFS,DIFS,Tslot,score_mode,max_STA_per_R,w_a,w_b,w_c)
 
 dev = size(M,1);
 NC = 50000;       %Score of non-decoded packets (i.e., below Sens. level)
@@ -13,6 +14,8 @@ total_airtime_backbone = zeros(1,dev);
 d_DBPS = zeros(1,dev);
 d_rate = zeros(1,dev);
 d_delay = zeros(1,dev);
+
+predicted_tpt = zeros(1,dev-1); % Only for the NN Approach
 
 % Check coverage range
 for i = 2:dev
@@ -181,150 +184,46 @@ else
             [~, ix] = max(score_extender);
             S = ix + 1;
             
-        case 101 %Linear regression (only extenders)
-            % Pre-computed weights
-            alpha1 = 0.0692;
-            alpha2 = 0.04540;
-            alpha3 = 0.8573;
-            alpha4 = -0.0791;
+        case 101 %NN
             % Array of scores for each extender
             score_extender = zeros(1,dev-1);
             % Get the features observed for each extender
             rssi_from_ap = -RSSI_map(2:dev);
             load_sta = ones(1,dev-1)*N(sta_id,6);
-            load_ap = -1;
+            ratio_successful_ap = zeros(1,dev-1);
             for i = 2:dev
                 active_STA_AP = [];
                 active_STA_AP = find((N(:,3) == i));
                 if (M(i,10) == 0)
                     ratio_successful_ap(i-1) = 1;
                 else
-                    ratio_successful_ap(i-1) = (M(i,10)/(sum(N(active_STA_AP,6))-N(sta_id,6)));    % RATIO_DELIVER_SUCCESFUL_AP [%]
+                    ratio_successful_ap(i-1) = M(i,10)/sum(N(active_STA_AP,6));    % RATIO_DELIVER_SUCCESFUL_AP [%]
                 end
                 [~,rate_sta(i-1)] = RatesWIFI(rssi_from_ap(i-1),Sens,f_access);
                 load_ap(i-1) = M(i,10);
+                
+%                 disp([num2str(M(i,10)) ' - ' ...
+%                     num2str(sum(N(active_STA_AP,6))) ' - ' ...
+%                     num2str(N(sta_id,6)) ' ---> ' ...
+%                     num2str(ratio_successful_ap(i-1))]);
+                                
             end
             % For each extender, compute its score based on weights and features
             for i = 2:dev
-                if (RSSI_map(i) ~= NC)
-                    score_extender(i-1) = ...
-                        alpha1*(rate_sta(i-1)/144.4) + alpha2*(load_sta(i-1)/833) + ...
-                        alpha3*ratio_successful_ap(i-1) + alpha4*(load_ap(i-1)/1000);
+                if (RSSI_map(i) ~= NC)    
+                    X = [rate_sta(i-1)/144.4e6 ...
+                        load_sta(i-1)/833 ...
+                        ratio_successful_ap(i-1) ...
+                        load_ap(i-1)/7300]';                    
+                    if (X(:)>1), disp('Alerta berta'); end
+                    predicted_tpt(i-1) = net(X);
                 else
-                    score_extender(i-1) = 0;
+                    predicted_tpt(i-1) = 0;
                 end
             end
-            [~, ix] = max(score_extender);
-            S = ix + 1;
-            
-        case 102 %Linear regression (only extenders)
-            % Pre-computed weights
-            alpha1 = 0.0692;
-            alpha2 = 0.4540;
-            alpha3 = 0.8573;
-            alpha4 = -0.0791;
-            % Array of scores for each extender
-            score_extender = zeros(1,dev-1);
-            % Get the features observed for each extender
-            rssi_from_ap = -RSSI_map(2:dev);
-            load_sta = ones(1,dev-1)*N(sta_id,6);
-            load_ap = -1;
-            for i = 2:dev
-                active_STA_AP = [];
-                active_STA_AP = find((N(:,3) == i));
-                if (M(i,10) == 0)
-                    ratio_successful_ap(i-1) = 1;
-                else
-                    ratio_successful_ap(i-1) = (M(i,10)/(sum(N(active_STA_AP,6))-N(sta_id,6)));    % RATIO_DELIVER_SUCCESFUL_AP [%]
-                end
-                [~,rate_sta(i-1)] = RatesWIFI(rssi_from_ap(i-1),Sens,f_access);
-                load_ap(i-1) = M(i,10);
-            end
-            % For each extender, compute its score based on weights and features
-            for i = 2:dev
-                if (RSSI_map(i) ~= NC)
-                    score_extender(i-1) = alpha1*(rssi_from_ap(i-1)/90) +  ...
-                        alpha2*(load_sta(i-1)/833) + ...
-                        alpha3*ratio_successful_ap(i-1) + alpha4*(load_ap(i-1)/1000);
-                else
-                    score_extender(i-1) = 0;
-                end
-            end
-            [~, ix] = max(score_extender);
-            S = ix + 1;
-            
-        case 103 %Linear regression (only extenders)
-            % Pre-computed weights
-            alpha1 = 0.0278;
-            alpha2 = 0.0593;
-            alpha3 = 0.8583;
-            alpha4 = -0.0791;
-            % Array of scores for each extender
-            score_extender = zeros(1,dev-1);
-            % Get the features observed for each extender
-            rssi_from_ap = -RSSI_map(2:dev);
-            load_sta = ones(1,dev-1)*N(sta_id,6);
-            load_ap = -1;
-            for i = 2:dev
-                active_STA_AP = [];
-                active_STA_AP = find((N(:,3) == i));
-                if (M(i,10) == 0)
-                    ratio_successful_ap(i-1) = 1;
-                else
-                    ratio_successful_ap(i-1) = (M(i,10)/(sum(N(active_STA_AP,6))-N(sta_id,6)));    % RATIO_DELIVER_SUCCESFUL_AP [%]
-                end
-                [~,rate_sta(i-1)] = RatesWIFI(rssi_from_ap(i-1),Sens,f_access);
-                load_ap(i-1) = M(i,10);
-            end
-            % For each extender, compute its score based on weights and features
-            for i = 2:dev
-                if (RSSI_map(i) ~= NC)
-                    score_extender(i-1) = alpha1*(rssi_from_ap(i-1)/90) +  ...
-                        alpha2*(rate_sta(i-1)/144.4) + ...
-                        alpha3*ratio_successful_ap(i-1) + alpha4*(load_ap(i-1)/1000);
-                else
-                    score_extender(i-1) = 0;
-                end
-            end
-            [~, ix] = max(score_extender);
-            S = ix + 1;
-            
-        case 104 %Linear regression (only extenders)
-            % Pre-computed weights
-            alpha1 = 0.029;
-            alpha2 = 0.0583;
-            alpha3 = 0.4538;
-            alpha4 = 1.4676;
-            % Array of scores for each extender
-            score_extender = zeros(1,dev-1);
-            % Get the features observed for each extender
-            rssi_from_ap = -RSSI_map(2:dev);
-            load_sta = ones(1,dev-1)*N(sta_id,6);
-            load_ap = -1;
-            for i = 2:dev
-                active_STA_AP = [];
-                active_STA_AP = find((N(:,3) == i));
-                if (M(i,10) == 0)
-                    ratio_successful_ap(i-1) = 1;
-                else
-                    ratio_successful_ap(i-1) = (M(i,10)/(sum(N(active_STA_AP,6))-N(sta_id,6)));    % RATIO_DELIVER_SUCCESFUL_AP [%]
-                end
-                [~,rate_sta(i-1)] = RatesWIFI(rssi_from_ap(i-1),Sens,f_access);
-                load_ap(i-1) = M(i,10);
-            end
-            % For each extender, compute its score based on weights and features
-            for i = 2:dev
-                if (RSSI_map(i) ~= NC)
-                    score_extender(i-1) = alpha1*(rssi_from_ap(i-1)/90) +  ...
-                        alpha2*(rate_sta(i-1)/144.4) + alpha3*(load_sta(i-1)/833) + ...
-                        alpha4*ratio_successful_ap(i-1);
-                else
-                    score_extender(i-1) = 0;
-                end
-            end
-            [~, ix] = max(score_extender);
-            S = ix + 1;
-            
+%             disp(['Predicted value: ' num2str(predicted_tpt)])
+            [~, ix] = max(predicted_tpt);
+            S = ix + 1;            
         otherwise
             disp('Error')
     end

@@ -11,8 +11,10 @@ clc
 %Keep the same random generated number
 rng(1899)
 
+load('nn_function.mat');
+
 %Main options
-num_it = 1000;                         %Number of simulations (random STA positions)
+num_it = 1;                         %Number of simulations (random STA positions)
 random_pos = 1;                     %Random position of STAs (0:OFF/1:ON)
 deploy = 0;                         %Type of deployment (0:circle/1:rectangle)
 random_ch = 0;                      %Random selection of the channel
@@ -37,9 +39,9 @@ PL_access = 3;                      %Path loss model selector of access links
 %PL = 4: IEEE 802.11ax Enterprise
 
 %IEEE 802.11k/v capabilities (%)
-kv_share = [100 0 100 100 100 100 100];
+kv_share = [100 0 100 100];
 %AP/Extender selection mechanism
-score_mode = [99 0 100 101 102 103 104];
+score_mode = [99 0 100 101];
 %0: 802.11 RSSI-based
 %1: Hops & children
 %2: Optimized (weights)
@@ -151,10 +153,11 @@ end
 %-------------------------------------------------------------------------
 % ALGORITHM EXECUTION
 %-------------------------------------------------------------------------
-f = waitbar(0,'','Name','Test AP Association...',...
-    'CreateCancelBtn','setappdata(gcbf,''canceling'',1)');
+% f = waitbar(0,'','Name','Test AP Association...',...
+%     'CreateCancelBtn','setappdata(gcbf,''canceling'',1)');
 for k = 1 : num_it
-    waitbar(k/num_it,f)
+    %waitbar(k/num_it,f)
+    fprintf('It %d/%d\n', k, num_it);
     % Compute STAs' position
     if (random_pos == 1)
         if (deploy == 0)                %Deployment: circle
@@ -168,7 +171,8 @@ for k = 1 : num_it
     % N = [posX    posY    Parent_Index    Channel     Rate    Lambda  DBPS     Type    Score_mode]
     %      1       2       3               4           5       6       7        8       9
     N = cell(1, num_approaches);
-    for a = 1 : num_approaches                  
+    for a = 1 : num_approaches    
+        %fprintf('- ap %d/%d\n', a, num_approaches);
         N{a} = zeros(sta,9);                 % WITH Extenders (To choose)
         % Allocation of positions into N matrix
         N{a}(:,1) = pos_STA(:,1);
@@ -178,16 +182,16 @@ for k = 1 : num_it
         %STA score mode
         [N{a}(:,8),N{a}(:,9)] = kvGenerator(sta,kv_share(a),score_mode(a));
         % WIFIX Computing framework for AP selection with each of the approaches
-        [S_T{a},E_T{a}(k),E_T_ok{a}(k),D_avg{a}(k),D_max{a}(k),SS_avg{a}(k),SS_min{a}(k),assoc_STA{a}(k),assoc_STA_AP{a}(k),assoc_STA_E{a}(k)] = ...
-            WIFIXComputing(map_R,map_STA,M,N{a},L,Pt,Sens,f_backbone,f_access,PL_backbone,PL_access,ext_conn_alg,score_mode(a),w_a_a,w_b_a,w_c_a,channel_load_ext);
+        [S_T{a},E_T{a}(k),E_T_ok{a}(k),D_avg{a}(k),D_max{a}(k),SS_avg{a}(k),SS_min{a}(k),assoc_STA{a}(k),assoc_STA_AP{a}(k),assoc_STA_E{a}(k),NEW_MATRIX] = ...
+            WIFIXComputing(net, map_R,map_STA,M,N{a},L,Pt,Sens,f_backbone,f_access,PL_backbone,PL_access,ext_conn_alg,score_mode(a),w_a_a,w_b_a,w_c_a,channel_load_ext);
         
-        mean_throughput_stas(a, k) = mean(S_T{a});
-        std_throughput_stas(a, k) = std(S_T{a});
+        mean_throughput_stas(a, k) = mean(NEW_MATRIX(:,8).*L);
+        std_throughput_stas(a, k) = std(NEW_MATRIX(:,8).*L);
         
     end
 end
 
-delete(f)
+% delete(f)
 
 %% PLOTS
 figure
@@ -199,5 +203,10 @@ er = errorbar(1:size(mean_throughput,2),mean_throughput, std_throughput, 'x');
 xlabel('Approach','interpreter','latex')
 ylabel('$\overline{\Gamma}$ [bps]','interpreter','latex')
 xticks(1:size(mean_throughput,2)) 
-xticklabels({'Rand', 'RSSI', 'LR1', 'LR2', 'LR3', 'LR4', 'LR5'})
+xticklabels({'Rand', 'RSSI', 'LR', 'NN'})
 set(gca,'FontSize',18,'TickLabelInterpreter','latex')
+
+% Percentage of times the NN approach improves the others or remains the same
+times_NN_improves_random = (sum(mean_throughput_stas(4,:)>=mean_throughput_stas(1,:))/num_it)*100;
+times_NN_improves_RSSI = (sum(mean_throughput_stas(4,:)>=mean_throughput_stas(2,:))/num_it)*100;
+times_NN_improves_LR = (sum(mean_throughput_stas(4,:)>=mean_throughput_stas(3,:))/num_it)*100;

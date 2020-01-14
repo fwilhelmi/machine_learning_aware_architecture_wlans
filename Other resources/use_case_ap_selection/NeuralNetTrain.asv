@@ -1,0 +1,64 @@
+%% Load Dataset
+clear
+close all
+clc
+
+filename = 'output_stas.csv';
+
+% Read the .csv containing the dataset
+T = readtable(filename);
+T = T{:,:};
+L = 12000;  % Fixed packet size [b]
+%%
+
+% Convert table to arrays
+% X = [T(:,2)/90 T(:,4)/144.4 T(:,5) T(:,6)/1000];
+RSSI_dbm = T(:,2);  % [dBm]
+RSSI_mW = 10.^(RSSI_dbm/10);
+RSSI_mW_scaled = RSSI_mW / max(RSSI_mW);
+
+rate_bps = T(:,3);  % [bps]
+rate_bps_scaled = rate_bps / max(rate_bps);
+
+load_sta = T(:,4);  % [pkt/s]
+load_sta_scaled = load_sta / max(load_sta);
+
+deliv_ratio = T(:,5);   % unitless
+deliv_ratio_scaled = deliv_ratio / max(deliv_ratio);
+
+load_ap = T(:,6);   % [pkt/s]
+load_ap_scaled = load_ap / max(load_ap);
+
+% Output
+throughput_sta = T(:,8);    % [pkt/s]
+throughput_sta_bps = throughput_sta * L * 1e-6;
+
+%%  TRAIN ARTIFICIAL NEURAL NETWORK
+
+fprintf("\n\n*** TRAIN ARTIFICIAL NEURAL NETWORK ***\n")
+
+Xtrain = [RSSI_mW_scaled rate_bps_scaled load_sta_scaled deliv_ratio_scaled load_ap_scaled]';
+Ytrain = throughput_sta_bps';
+
+% no. of hidden layers
+net = feedforwardnet([12 8]);
+net.trainParam.mu_max = 1e10;
+net.divideParam.trainRatio = 0.6; % training set [%]
+net.divideParam.valRatio = 0.3; % validation set [%]
+net.divideParam.testRatio = 0.1; % test set [%]
+% train a neural network
+net.trainParam.epochs = 30;
+fprintf("Training ANN...\n")
+net = train(net,Xtrain,Ytrain);
+fprintf("- Training completed!\n")
+
+
+%---------------------------------
+% view net
+%view (net)
+% simulate a network over complete input range
+Y_pred_train = net(Xtrain);
+mse = immse(Y_pred_train,Ytrain);
+mae = sqrt(mse);
+fprintf("- MSE: %f Mbps^2\n", mse)
+fprintf("- MAE: %f Mbps\n", mae)
