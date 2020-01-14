@@ -5,7 +5,23 @@
 %                      operating under the defined configuration
 %-------------------------------------------------------------------------
 
-function [S_STA,E_T,E_T_ok,D_avg,D_max,SS_avg,SS_min,assoc_STA,assoc_STA_AP,assoc_STA_E] = WIFIXComputing(map_R,map_STA,M,N,WIFI_std,f_backbone,f_access,PL_backbone,PL_access,Pt,Sens,L,TPHY,SIFS,DIFS,Tslot,ext_conn_alg,margin_R,max_R_per_R,score_mode,max_STA_per_R,w_a,w_b,w_c,channel_load_ext)
+function [S_STA,E_T,E_T_ok,D_avg,D_max,SS_avg,SS_min,assoc_STA,assoc_STA_AP,assoc_STA_E] = WIFIXComputing(map_R,map_STA,M,N,L,Pt,Sens,f_backbone,f_access,PL_backbone,PL_access,ext_conn_alg,score_mode,w_a,w_b,w_c,channel_load_ext)
+
+% Time Parameters
+TPHY = 40E-6;                       %PHY time
+SIFS = 16E-6;                       %SIFS time
+DIFS = 34E-6;                       %DIFS time
+Tslot = 9E-6;                       %Slot time
+
+%Operating Frequency % Channel
+WIFI_std = 0;                       %IEEE 802.11 standards employed
+%WIFI_std = 0: IEEE 802.11n (2.4 GHz) + IEEE 802.11ac (5 GHz)
+%WIFI_std = 1: IEEE 802.11ax (2.4 GHz) + IEEE 802.11ax (5 GHz)
+
+max_R_per_R = 30;                   %Maximum number of Extenders per Extender
+max_STA_per_R = 30;                 %Maximum number of STAs per Extender
+
+margin_R = -70;                     %Margin for direct connection to the AP (dBm)
 
 %Sizes
 sz = size(M);

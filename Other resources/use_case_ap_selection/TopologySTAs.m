@@ -111,7 +111,7 @@ for m=1:sta
         %%%%%%%% - Then, add the throughput (to be computed)
         NEW_MATRIX(m,1) = N(m,3);    % AP #
         NEW_MATRIX(m,2) = Pr_STA(m);        % RSSI [dBm]
-        NEW_MATRIX(m,3) = N(m,5)/1e6;       % RATE_STA [bps]
+        NEW_MATRIX(m,3) = N(m,5);           % RATE_STA [bps]
         NEW_MATRIX(m,4) = N(m,6);           % LOAD_STA [pkt/s]
         active_STA_AP = [];
         active_STA_AP = find((N(:,3) == N(m,3)));
@@ -123,6 +123,14 @@ for m=1:sta
         NEW_MATRIX(m,6) = M(N(m,3), 10);    % LOAD AP[pkt/s]
         NEW_MATRIX(m,7) = M(N(m,3), 12);    % AT_AP [Ratio]
     end
+    
+%     disp('Parameters STA:')
+%     disp(['   - Selected AP = ' num2str(NEW_MATRIX(m,1))]) 
+%     disp(['   - RSSI = ' num2str(NEW_MATRIX(m,2))]) 
+%     disp(['   - RATE_STA = ' num2str(NEW_MATRIX(m,3))]) 
+%     disp(['   - LOAD_STA = ' num2str(NEW_MATRIX(m,4))]) 
+%     disp(['   - RATIO_DELIVER_SUCCESFUL_AP = ' num2str(NEW_MATRIX(m,5))]) 
+%     disp(['   - Load AP = ' num2str(NEW_MATRIX(m,6))])     
     
     % Computing number of different channels
     subset_ch = find(N(:,4) > 0);

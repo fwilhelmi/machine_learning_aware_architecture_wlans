@@ -11,12 +11,11 @@ clc
 %Keep the same random generated number
 rng(2000)
 
-f = waitbar(0,'Pollas','Name','Test AP Association...',...
+f = waitbar(0,'','Name','Test AP Association...',...
     'CreateCancelBtn','setappdata(gcbf,''canceling'',1)');
 
 total_repetitions = 100000;
 for it = 1 : total_repetitions
-
 %Main options
 num_it = 1;                      %Number of simulations (random STA positions)
 random_pos = 1;                     %Random position of STAs (0:OFF/1:ON)
@@ -264,7 +263,7 @@ for k = 1:num_it
         if (random_traffic == 0)
             N_a(:,6) = lambda_gen(l);
         else
-            N_a(:,6) = randi([416,833],sta,1);   % HARDCODED
+            N_a(:,6) = randi([83,833],sta,1);   % HARDCODED
 %             for p = 1:sta
 %                 %N_a(p,6) = eps_gen.*randn() + lambda_gen(l);
 %                 N_a(p,6) = randi([1,5],sta,1);
@@ -292,13 +291,15 @@ for k = 1:num_it
 %                 disp(['--> Option A: w_b = ',num2str(w_b_a(i)),' w_c = ',num2str(w_c_a(j))]);                
 %                 disp(str_a)
 
-                   
                 waitbar(it/total_repetitions,f)
                                 
                 %OPTION A: WITH Extenders (To choose)
-                [S_T_a(i,j,k,l),E_T_a(i,j,k,l),E_T_ok_a(i,j,k,l),D_avg_a(i,j,k,l),D_max_a(i,j,k,l),SS_avg_a(i,j,k,l),SS_min_a(i,j,k,l),assoc_STA_a(i,j,k,l),assoc_STA_AP_a(i,j,k,l),assoc_STA_E_a(i,j,k,l)] = ...
-                    WIFIXComputing(map_R,map_STA,M_a,N_a,WIFI_std,f_backbone,f_access,PL_backbone,PL_access,Pt,Sens,L,TPHY,SIFS,DIFS,Tslot,ext_conn_alg,margin_R,max_R_per_R,score_mode_a,max_STA_per_R,w_a_a,w_b_a(i),w_c_a(j),channel_load_ext);
-                       
+%                 [S_T_a(i,j,k,l),E_T_a(i,j,k,l),E_T_ok_a(i,j,k,l),D_avg_a(i,j,k,l),D_max_a(i,j,k,l),SS_avg_a(i,j,k,l),SS_min_a(i,j,k,l),assoc_STA_a(i,j,k,l),assoc_STA_AP_a(i,j,k,l),assoc_STA_E_a(i,j,k,l)] = ...
+%                     WIFIXComputing(map_R,map_STA,M_a,N_a,WIFI_std,f_backbone,f_access,PL_backbone,PL_access,Pt,Sens,L,TPHY,SIFS,DIFS,Tslot,ext_conn_alg,margin_R,max_R_per_R,score_mode_a,max_STA_per_R,w_a_a,w_b_a(i),w_c_a(j),channel_load_ext);
+                
+                %[S_T_a(i,j,k,l),E_T_a(i,j,k,l),E_T_ok_a(i,j,k,l),D_avg_a(i,j,k,l),D_max_a(i,j,k,l),SS_avg_a(i,j,k,l),SS_min_a(i,j,k,l),assoc_STA_a(i,j,k,l),assoc_STA_AP_a(i,j,k,l),assoc_STA_E_a(i,j,k,l)] = ...
+                WIFIXComputing(map_R,map_STA,M_a,N_a,L,Pt,Sens,f_backbone,f_access,PL_backbone,PL_access,ext_conn_alg,score_mode_a,w_a_a,w_b_a,w_c_a,channel_load_ext);
+                
             end
         end
     end
