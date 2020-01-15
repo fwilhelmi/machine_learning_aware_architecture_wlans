@@ -14,7 +14,7 @@ rng(1899)
 load('nn_function.mat');
 
 %Main options
-num_it = 1;                         %Number of simulations (random STA positions)
+num_it = 50;                         %Number of simulations (random STA positions)
 random_pos = 1;                     %Random position of STAs (0:OFF/1:ON)
 deploy = 0;                         %Type of deployment (0:circle/1:rectangle)
 random_ch = 0;                      %Random selection of the channel
@@ -155,6 +155,8 @@ end
 %-------------------------------------------------------------------------
 % f = waitbar(0,'','Name','Test AP Association...',...
 %     'CreateCancelBtn','setappdata(gcbf,''canceling'',1)');
+
+mae = [];
 for k = 1 : num_it
     %waitbar(k/num_it,f)
     fprintf('It %d/%d\n', k, num_it);
@@ -185,12 +187,31 @@ for k = 1 : num_it
         [S_T{a},E_T{a}(k),E_T_ok{a}(k),D_avg{a}(k),D_max{a}(k),SS_avg{a}(k),SS_min{a}(k),assoc_STA{a}(k),assoc_STA_AP{a}(k),assoc_STA_E{a}(k),NEW_MATRIX] = ...
             WIFIXComputing(net, map_R,map_STA,M,N{a},L,Pt,Sens,f_backbone,f_access,PL_backbone,PL_access,ext_conn_alg,score_mode(a),w_a_a,w_b_a,w_c_a,channel_load_ext);
         
+        satisfaction_ratio{a}(k,:) = NEW_MATRIX(:,8) ./ N{a}(:,6);
+        
         mean_throughput_stas(a, k) = mean(NEW_MATRIX(:,8).*L);
         std_throughput_stas(a, k) = std(NEW_MATRIX(:,8).*L);
+        
+        if a == 4
+        
+            mae = [mae; NEW_MATRIX(:,9) * L * 1e-6];
+            
+        end
         
     end
 end
 
+satisf_rand = satisfaction_ratio{1};
+satisf_rssi = satisfaction_ratio{2};
+satisf_lr = satisfaction_ratio{3};
+satisf_nn = satisfaction_ratio{4};
+
+
+%%
+figure
+title('Sopoto')
+x = [satisf_rand(:) satisf_rssi(:) satisf_lr(:) satisf_nn(:)];
+boxplot(x)
 % delete(f)
 
 %% PLOTS

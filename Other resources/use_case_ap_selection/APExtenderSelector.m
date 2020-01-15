@@ -209,14 +209,21 @@ else
                                 
             end
             % For each extender, compute its score based on weights and features
+            MIN_RSSI_DBM = -90;
+            RATE_BPS_MAX = 144e6;
+            LOAD_STA_MAX = 833;  % [pkt/s]
+            DELIV_RATIO_MAX = 1;
+            LOAD_AP_MAX = 10 * LOAD_STA_MAX;
+            THROUGHPUT_MAX = LOAD_STA_MAX;
             for i = 2:dev
                 if (RSSI_map(i) ~= NC)    
-                    X = [rate_sta(i-1)/144.4e6 ...
-                        load_sta(i-1)/833 ...
-                        ratio_successful_ap(i-1) ...
-                        load_ap(i-1)/7300]';                    
+                    X = [1 - rssi_from_ap(i-1)/ MIN_RSSI_DBM...
+                        rate_sta(i-1) / RATE_BPS_MAX ...
+                        load_sta(i-1)/LOAD_STA_MAX ...
+                        ratio_successful_ap(i-1)/DELIV_RATIO_MAX ...
+                        load_ap(i-1)/LOAD_AP_MAX]';                    
                     if (X(:)>1), disp('Alerta berta'); end
-                    predicted_tpt(i-1) = net(X);
+                    predicted_tpt(i-1) = net(X) * THROUGHPUT_MAX;   % [pkt/s]
                 else
                     predicted_tpt(i-1) = 0;
                 end

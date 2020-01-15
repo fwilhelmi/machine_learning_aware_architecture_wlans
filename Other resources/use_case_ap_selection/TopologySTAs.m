@@ -161,12 +161,12 @@ for m=1:sta
         NEW_MATRIX(m,8) = S_STA(m)/L;    % Throughput [pkt/s]
     end
     
-    if score_mode == 101
-        disp(['Predicted value: ' num2str(predicted_tpt(N(m,3)-1))])
-        disp(['Actual value: ' num2str((NEW_MATRIX(m,8))')])
-    end
+%     if score_mode == 101
+%         disp(['Predicted value: ' num2str(predicted_tpt(N(m,3)-1))])
+%         disp(['Actual value: ' num2str((NEW_MATRIX(m,8))')])
+%     end
     
-    NEW_MATRIX(m,9) = predicted_tpt(N(m,3)-1) - (NEW_MATRIX(m,8)*L*1e-6);
+    NEW_MATRIX(m,9) = abs(predicted_tpt(N(m,3)-1) - (NEW_MATRIX(m,8)));
     
     %Computing resulting generation rate per each Extender in function of STAs
     if (N(m,3) > 0)
