@@ -25,10 +25,13 @@ In particular, we demonstrated the superiority of the ITU-T's architecture by sh
 | Location of STAs | Randomly uniform |
 | Location of APs  | Fixed            |
 
-An example of random deployment is illustrated in the following Figure:
-![alt text](https://github.com/fwilhelmi/machine_learning_aware_architecture_wlans/blob/master/Other%20resources/use_case_ap_selection/random_sta_deployment.png "Random deployment")
+An example of a random deployment is illustrated in the following Figure:
+
+<img src="https://github.com/fwilhelmi/machine_learning_aware_architecture_wlans/blob/master/Other%20resources/use_case_ap_selection/random_sta_deployment.png" alt="Random deployment"
+	title="Random deployment" width="500" />
 
 The simulation parameters are as follows:
+
 |     | **Parameter**               | **Value**                                                                                                                         |
 |-----|-----------------------------|-----------------------------------------------------------------------------------------------------------------------------------|
 | PHY | Central frequency           | 5 GHz                                                                                                                             |
@@ -52,7 +55,9 @@ To generate the dataset (see [output_stas.csv](https://github.com/fwilhelmi/mach
 4. Load AP [bps]: amount of load that the AP is serving before a new (re)association.
 
 Our results compare the standard Strongest Signal First (SSF) with the NN approach. In total, 50 random deployments are considered for averaging purposes. The following Figure shows the obtained results for a variable number of STAs:
-![alt text](https://github.com/fwilhelmi/machine_learning_aware_architecture_wlans/blob/master/Other%20resources/use_case_ap_selection/results_use_case.png "Results SSF vs NN")
+
+<img src="https://github.com/fwilhelmi/machine_learning_aware_architecture_wlans/blob/master/Other%20resources/use_case_ap_selection/results_use_case.png" alt="Results SSF vs NN"
+	title="Results SSF vs NN" width="500" />
 
 As shown, the NN approach improves the average satisfaction obtained in all the deployments. Apart from that, it provides stability and increases fairness.
 
