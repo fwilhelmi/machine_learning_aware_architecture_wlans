@@ -11,9 +11,6 @@ clc
 %Keep the same random generated number
 rng(2000)
 
-f = waitbar(0,'','Name','Test AP Association...',...
-    'CreateCancelBtn','setappdata(gcbf,''canceling'',1)');
-
 total_repetitions = 100000;
 for it = 1 : total_repetitions
 %Main options
@@ -117,7 +114,7 @@ max_R_per_R = 30;                   %Maximum number of Extenders per Extender
 max_STA_per_R = 30;                 %Maximum number of STAs per Extender
 
 if (random_pos == 1)
-    sta = 20;                       %Number of stations
+    sta = 30;                       %Number of stations
     %Deployment: circle
     margin_under = 0;               %Position margin to deploy STAs far from coverage center [%]
     margin_over = 0;                %Position margin to deploy STAs far from coverage edge [%]
@@ -149,9 +146,6 @@ map_STA = 0;                        %Visualization of STA map
 %0: Do not show STA map
 %1: Show final STA map (it affects computation time!!!)
 %2: Show intermediate and final STA maps (it affects computation time!!!)
-
-%SVM-based feed data
-% dist = zeros(sta,dev,num_it);      %Distance matrix amongs STAs and AP/Extenders (m)
 
 %-------------------------------------------------------------------------
 % AUXILIAR VARIABLES
@@ -194,34 +188,6 @@ assoc_STA_a_avg = zeros(length(w_b_a),length(w_c_a),length(lambda_gen));
 assoc_STA_AP_a_avg = zeros(length(w_b_a),length(w_c_a),length(lambda_gen));
 assoc_STA_E_a_avg = zeros(length(w_b_a),length(w_c_a),length(lambda_gen));
 
-%% LEGEND NAMING
-
-switch score_mode_a
-    case 0
-        str_a = "WITH " + exts_a + " Extenders (RSSI-based)";
-     
-    case 1
-        str_a = "WITH " + exts_a + " Extenders (Hops & children)";
-        
-    case 2
-        str_a = "WITH " + exts_a + " Extenders (optimized) (" + kv_share_a + "%)";
-        
-    case 3
-        str_a = "WITH " + exts_a + " Extenders (threshold-based) (" + kv_share_a + "%)";
-        
-    case 4
-        str_a = "WITH " + exts_a + " Extenders (load aware) (" + kv_share_a + "%)";
-        
-    case 5
-        str_a = "WITH " + exts_a + " Extenders (latency-based) (" + kv_share_a + "%)";
-       
-    case 99
-        str_a = "RANDOM ASSOCIATION WITH " + exts_a + " Extenders (" + kv_share_a + "%)"; 
-        
-    otherwise
-        str_a = "ERROR";
-end
-
 %% ALGORITHM EXECUTION
 
 for k = 1:num_it
@@ -263,16 +229,9 @@ for k = 1:num_it
         if (random_traffic == 0)
             N_a(:,6) = lambda_gen(l);
         else
-            N_a(:,6) = randi([83,833],sta,1);   % HARDCODED
-%             for p = 1:sta
-%                 %N_a(p,6) = eps_gen.*randn() + lambda_gen(l);
-%                 N_a(p,6) = randi([1,5],sta,1);
-%             end
+            min_pkt_ps = 83;
+            N_a(:,6) = randi([min_pkt_ps,15*min_pkt_ps],sta,1);   % HARDCODED
         end
-        
-        % OPTION E: WITHOUT Extenders
-        % (w_a, w_b(i) and w_c(j) are set to 0 as they do not affect to the network without Extenders)               
-        %[S_T_e_fixed(l),E_T_e_fixed(l),E_T_ok_e_fixed(l),D_avg_e_fixed(l),D_max_e_fixed(l),SS_avg_e_fixed(l),SS_min_e_fixed(l),assoc_STA_e_fixed(l)] = WIFIXComputing(map_R,map_STA,M_e,N_e,WIFI_std,f_backbone,f_access,PL_backbone,PL_access,Pt,Sens,L,TPHY,SIFS,DIFS,Tslot,ext_conn_alg,margin_R,max_R_per_R,score_mode_e,max_STA_per_R,0,0,0,channel_load_ext);
         
         for i = 1:length(w_b_a)
             for j = 1:length(w_c_a)
@@ -282,24 +241,8 @@ for k = 1:num_it
                 end
                               
                 m = m + 1;
-%                 disp('*********************************************************');
-%                 disp(['STA DEPLOYMENT (',num2str(k),'/',num2str(num_it),')']);
-%                 disp(['TRAFFIC: ',num2str(l),'/',num2str(length(lambda_gen))]);
-%                 disp(['--> Lambda/STA: ',num2str(lambda_gen(l)),' paq/s']);
-%                 disp(['--> Total network traffic: ',num2str(lambda_gen(l)*sta*L/1e6),' Mbps']);
-%                 disp(['WEIGHT CONFIGURATION: ',num2str(m),'/',num2str(length(w_b_a)*length(w_c_a))]);
-%                 disp(['--> Option A: w_b = ',num2str(w_b_a(i)),' w_c = ',num2str(w_c_a(j))]);                
-%                 disp(str_a)
-
-                waitbar(it/total_repetitions,f)
-                                
-                %OPTION A: WITH Extenders (To choose)
-%                 [S_T_a(i,j,k,l),E_T_a(i,j,k,l),E_T_ok_a(i,j,k,l),D_avg_a(i,j,k,l),D_max_a(i,j,k,l),SS_avg_a(i,j,k,l),SS_min_a(i,j,k,l),assoc_STA_a(i,j,k,l),assoc_STA_AP_a(i,j,k,l),assoc_STA_E_a(i,j,k,l)] = ...
-%                     WIFIXComputing(map_R,map_STA,M_a,N_a,WIFI_std,f_backbone,f_access,PL_backbone,PL_access,Pt,Sens,L,TPHY,SIFS,DIFS,Tslot,ext_conn_alg,margin_R,max_R_per_R,score_mode_a,max_STA_per_R,w_a_a,w_b_a(i),w_c_a(j),channel_load_ext);
-                
-                %[S_T_a(i,j,k,l),E_T_a(i,j,k,l),E_T_ok_a(i,j,k,l),D_avg_a(i,j,k,l),D_max_a(i,j,k,l),SS_avg_a(i,j,k,l),SS_min_a(i,j,k,l),assoc_STA_a(i,j,k,l),assoc_STA_AP_a(i,j,k,l),assoc_STA_E_a(i,j,k,l)] = ...
-                WIFIXComputing(map_R,map_STA,M_a,N_a,L,Pt,Sens,f_backbone,f_access,PL_backbone,PL_access,ext_conn_alg,score_mode_a,w_a_a,w_b_a,w_c_a,channel_load_ext);
-                
+                WIFIXComputing(1,map_R,map_STA,M_a,N_a,L,Pt,Sens,f_backbone,f_access,PL_backbone,PL_access,ext_conn_alg,score_mode_a,w_a_a,w_b_a,w_c_a,channel_load_ext);
+        
             end
         end
     end
@@ -315,285 +258,4 @@ for i = 1:length(w_b_a)
     end
 end
 
-end
-
-delete(f)
-
-%% PLOTS
-
-%3D Option
-if ((length(w_b_a) > 1) && (length(w_c_a) > 1))
-    disp('Printing 3D option');
-    for l = 1:length(lambda_gen)
-        % Thoughput efficiency [AP]
-        figure
-        surf(E_T_a_avg(:,:,l))
-        hold
-        surf(E_T_b_avg(:,:,l))
-        surf(E_T_c_avg(:,:,l))
-        surf(E_T_d_avg(:,:,l))
-        surf(E_T_e_avg(:,:,l))
-        title(['Thoughput efficiency [AP] (with {\lambda} = ',num2str(lambda_gen(l)),' paq/s)'])
-        xlabel('c')
-        ylabel('b')
-        xticks(1:w_c_a(end))
-        yticks(1:w_b_a(end))
-        xticklabels(w_c_a)
-        yticklabels(w_b_a)
-        legend(str_a,str_b,str_c,str_d,'WITHOUT Extenders')
-        
-        % Average delay [STA]
-        figure
-        surf(D_avg_a_avg(:,:,l))
-        hold
-        surf(D_avg_b_avg(:,:,l))
-        surf(D_avg_c_avg(:,:,l))
-        surf(D_avg_d_avg(:,:,l))
-        surf(D_avg_e_avg(:,:,l))
-        title(['Average delay [STA] (with {\lambda} = ',num2str(lambda_gen(l)),' paq/s)'])
-        xlabel('c')
-        ylabel('b')
-        xticks(1:w_c_a(end))
-        yticks(1:w_b_a(end))
-        xticklabels(w_c_a)
-        yticklabels(w_b_a)
-        legend(str_a,str_b,str_c,str_d,'WITHOUT Extenders')
-        
-        % Maximum delay [STA]
-        figure
-        surf(D_max_a_avg(:,:,l))
-        hold
-        surf(D_max_b_avg(:,:,l))
-        surf(D_max_c_avg(:,:,l))
-        surf(D_max_d_avg(:,:,l))
-        surf(D_max_e_avg(:,:,l))
-        title(['Maximum delay [STA] (with {\lambda} = ',num2str(lambda_gen(l)),' paq/s)'])
-        xlabel('c')
-        ylabel('b')
-        xticks(1:w_c_a(end))
-        yticks(1:w_b_a(end))
-        xticklabels(w_c_a)
-        yticklabels(w_b_a)
-        legend(str_a,str_b,str_c,str_d,'WITHOUT Extenders')
-        
-        % Number of associated STAs (%)
-        figure
-        surf((assoc_STA_a_avg(:,:,l)/sta)*100)
-        hold
-        surf((assoc_STA_b_avg(:,:,l)/sta)*100)
-        surf((assoc_STA_c_avg(:,:,l)/sta)*100)
-        surf((assoc_STA_d_avg(:,:,l)/sta)*100)
-        surf((assoc_STA_e_avg(:,:,l)/sta)*100)
-        title(['Associated STAs (%) (with {\lambda} = ',num2str(lambda_gen(l)),' paq/s)'])
-        xlabel('c')
-        ylabel('b')
-        xticks(1:w_c_a(end))
-        yticks(1:w_b_a(end))
-        xticklabels(w_c_a)
-        yticklabels(w_b_a)
-        legend(str_a,str_b,str_c,str_d,'WITHOUT Extenders')
-        
-        % Non-congested simulations(%)
-        figure
-        surf(share_ok_a(:,:,l));
-        hold
-        surf(share_ok_b(:,:,l));
-        surf(share_ok_c(:,:,l));
-        surf(share_ok_d(:,:,l));
-        surf(share_ok_e(:,:,l));
-        title(['Non-congested simulations (%) (with {\lambda} = ',num2str(lambda_gen(l)),' paq/s)'])
-        xlabel('c')
-        ylabel('b')
-        xticks(1:w_c_a(end))
-        yticks(1:w_b_a(end))
-        xticklabels(w_c_a)
-        yticklabels(w_b_a)
-        legend(str_a,str_b,str_c,str_d,'WITHOUT Extenders')
-    end
-end
-
-%2.5D Option
-if ((length(w_b_a) > 1) && (length(w_c_a) == 1) && (length(lambda_gen) > 1))
-    disp('Printing 2.5D option');
-    
-    E_T_e_new = zeros(1,length(lambda_gen));
-    D_avg_e_new = zeros(1,length(lambda_gen));
-    D_max_e_new = zeros(1,length(lambda_gen));
-    assoc_STA_e_new = zeros(1,length(lambda_gen));
-    share_ok_e_new = zeros(1,length(lambda_gen));
-    
-    for i=1:length(lambda_gen)
-        E_T_e_new(i) = E_T_e_avg(1,1,i);
-        D_avg_e_new(i) = D_avg_e_avg(1,1,i);
-        D_max_e_new(i) = D_max_e_avg(1,1,i);
-        assoc_STA_e_new(i) = assoc_STA_e_avg(1,1,i);
-        share_ok_e_new(i) = share_ok_e(1,1,i);
-    end
-    
-    str = "WITH " + exts_a + " Extenders (load aware) (" + kv_share_a + "%) (\alpha = " + w_b_a(1) + " )";
-    for i=2:length(w_b_a)
-        new = "WITH " + exts_a + " Extenders (load aware) (" + kv_share_a + "%) (\alpha = " + w_b_a(i) + " )";
-        str = [str new];
-    end
-    
-    for i=1:length(w_b_b)
-        new = "WITH " + exts_b + " Extenders (load aware) (" + kv_share_b + "%) (\alpha = " + w_b_b(i) + " )";
-        str = [str new]; 
-    end
-    
-    for i=1:length(w_b_c)
-        new = "WITH " + exts_c + " Extenders (load aware) (" + kv_share_c + "%) (\alpha = " + w_b_c(i) + " )";
-        str = [str new];
-    end
-    
-    for i=1:length(w_b_d)
-        new = "WITH " + exts_d + " Extenders (load aware) (" + kv_share_d + "%) (\alpha = " + w_b_d(i) + " )";
-        str = [str new];
-    end
-    
-    % Thoughput efficiency [AP]
-    figure
-    plot((lambda_gen*sta*L)/1e6,reshape(E_T_a_avg,length(w_b_a),length(lambda_gen)).*(lambda_gen.*sta.*L)./1e8)    
-    hold
-    plot((lambda_gen*sta*L)/1e6,reshape(E_T_b_avg,length(w_b_b),length(lambda_gen)).*(lambda_gen.*sta.*L)./1e8) 
-    plot((lambda_gen*sta*L)/1e6,reshape(E_T_c_avg,length(w_b_c),length(lambda_gen)).*(lambda_gen.*sta.*L)./1e8) 
-    plot((lambda_gen*sta*L)/1e6,reshape(E_T_d_avg,length(w_b_d),length(lambda_gen)).*(lambda_gen.*sta.*L)./1e8) 
-    plot((lambda_gen*sta*L)/1e6,(E_T_e_new./100).*(lambda_gen.*sta.*L)./1e6)
-    
-    title('Thoughput efficiency [AP]')
-    xlabel('Total offered load (Mbps)')
-    ylabel('Total Throughput (Mbps)')
-    legend([str,'WITHOUT Extenders'])
-    
-    % Average delay [STA]
-    figure
-    plot((lambda_gen*sta*L)/1e6,reshape(D_avg_a_avg,length(w_b_a),length(lambda_gen)))
-    hold
-    plot((lambda_gen*sta*L)/1e6,reshape(D_avg_b_avg,length(w_b_a),length(lambda_gen)))
-    plot((lambda_gen*sta*L)/1e6,reshape(D_avg_c_avg,length(w_b_c),length(lambda_gen)))
-    plot((lambda_gen*sta*L)/1e6,reshape(D_avg_d_avg,length(w_b_d),length(lambda_gen)))
-    plot((lambda_gen*sta*L)/1e6,D_avg_e_new)
-    
-    title('Average delay [STA]')
-    xlabel('Total offered load (Mbps)')
-    ylabel('Delay (s)')
-    legend([str,'WITHOUT Extenders'])
-    
-    % Maximum delay [STA]
-    figure
-    plot((lambda_gen*sta*L)/1e6,reshape(D_max_a_avg,length(w_b_a),length(lambda_gen)))
-    hold
-    plot((lambda_gen*sta*L)/1e6,reshape(D_max_b_avg,length(w_b_b),length(lambda_gen)))
-    plot((lambda_gen*sta*L)/1e6,reshape(D_max_c_avg,length(w_b_c),length(lambda_gen)))
-    plot((lambda_gen*sta*L)/1e6,reshape(D_max_d_avg,length(w_b_d),length(lambda_gen)))
-    plot((lambda_gen*sta*L)/1e6,D_max_e_new)
-    
-    title('Maximum delay (STA)')
-    xlabel('Total offered load (Mbps)')
-    ylabel('Delay (s)')
-    legend([str,'WITHOUT Extenders'])
-    
-    % Number of associated STAs (%)
-    figure
-    plot((lambda_gen*sta*L)/1e6,reshape((assoc_STA_a_avg./sta).*100,length(w_b_a),length(lambda_gen)))
-    hold
-    plot((lambda_gen*sta*L)/1e6,reshape((assoc_STA_b_avg./sta).*100,length(w_b_b),length(lambda_gen)))
-    plot((lambda_gen*sta*L)/1e6,reshape((assoc_STA_c_avg./sta).*100,length(w_b_c),length(lambda_gen)))
-    plot((lambda_gen*sta*L)/1e6,reshape((assoc_STA_d_avg./sta).*100,length(w_b_d),length(lambda_gen)))
-    plot((lambda_gen*sta*L)/1e6,(assoc_STA_e_new./sta).*100)
-    
-    title('Association success')
-    xlabel('Total offered load (Mbps)')
-    ylabel('Associated STAs (%)')
-    legend([str,'WITHOUT Extenders'])
-    
-    % Non-congested simulations(%)
-    figure
-    plot((lambda_gen*sta*L)/1e6,reshape(share_ok_a,length(w_b_a),length(lambda_gen)))
-    hold
-    plot((lambda_gen*sta*L)/1e6,reshape(share_ok_b,length(w_b_b),length(lambda_gen)))
-    plot((lambda_gen*sta*L)/1e6,reshape(share_ok_c,length(w_b_c),length(lambda_gen)))
-    plot((lambda_gen*sta*L)/1e6,reshape(share_ok_d,length(w_b_d),length(lambda_gen)))
-    plot((lambda_gen*sta*L)/1e6,share_ok_e_new)
-    
-    title('Non-congested simulations')
-    xlabel('Total offered load (Mbps)')
-    ylabel('Non-congested simulations (%)')
-    legend([str,'WITHOUT Extenders'])
-    
-end
-
-%2D Option
-if ((length(w_b_a) == 1) && (length(w_c_a) == 1) && (length(lambda_gen) > 1))
-    disp('Printing 2D option');
-       
-    % Thoughput efficiency [AP]
-    figure
-    plot((lambda_gen*sta*L)/1e6,reshape(E_T_a_avg,1,length(lambda_gen)).*(lambda_gen.*sta.*L)./1e8)
-    hold
-    plot((lambda_gen*sta*L)/1e6,reshape(E_T_b_avg,1,length(lambda_gen)).*(lambda_gen.*sta.*L)./1e8)
-    plot((lambda_gen*sta*L)/1e6,reshape(E_T_c_avg,1,length(lambda_gen)).*(lambda_gen.*sta.*L)./1e8)
-    plot((lambda_gen*sta*L)/1e6,reshape(E_T_d_avg,1,length(lambda_gen)).*(lambda_gen.*sta.*L)./1e8)  
-    plot((lambda_gen*sta*L)/1e6,reshape(E_T_e_avg,1,length(lambda_gen)).*(lambda_gen.*sta.*L)./1e8)
-    
-    title('Thoughput efficiency [AP]')
-    xlabel('Total network traffic (Mbps)')
-    ylabel('Total Throughput (Mbps)')
-    legend(str_a,str_b,str_c,str_d,'WITHOUT Extenders')
-    
-    % Average delay [STA]
-    figure
-    plot((lambda_gen*sta*L)/1e6,reshape(D_avg_a_avg,1,length(lambda_gen)))
-    hold
-    plot((lambda_gen*sta*L)/1e6,reshape(D_avg_b_avg,1,length(lambda_gen)))
-    plot((lambda_gen*sta*L)/1e6,reshape(D_avg_c_avg,1,length(lambda_gen)))
-    plot((lambda_gen*sta*L)/1e6,reshape(D_avg_d_avg,1,length(lambda_gen)))
-    plot((lambda_gen*sta*L)/1e6,reshape(D_avg_e_avg,1,length(lambda_gen)))
-    
-    title('Average delay [STA]')
-    xlabel('Total network traffic (Mbps)')
-    ylabel('Delay (s)')
-    legend(str_a,str_b,str_c,str_d,'WITHOUT Extenders')
-    
-    % Maximum delay [STA]
-    figure
-    plot((lambda_gen*sta*L)/1e6,reshape(D_max_a_avg,1,length(lambda_gen)))
-    hold
-    plot((lambda_gen*sta*L)/1e6,reshape(D_max_b_avg,1,length(lambda_gen)))
-    plot((lambda_gen*sta*L)/1e6,reshape(D_max_c_avg,1,length(lambda_gen)))
-    plot((lambda_gen*sta*L)/1e6,reshape(D_max_d_avg,1,length(lambda_gen)))
-    plot((lambda_gen*sta*L)/1e6,reshape(D_max_e_avg,1,length(lambda_gen)))
-    
-    title('Maximum delay (STA)')
-    xlabel('Total network traffic (Mbps)')
-    ylabel('Delay (s)')
-    legend(str_a,str_b,str_c,str_d,'WITHOUT Extenders')
-    
-    % Number of associated STAs (%)
-    figure
-    plot((lambda_gen*sta*L)/1e6,reshape((assoc_STA_a_avg./sta).*100,1,length(lambda_gen)))
-    hold
-    plot((lambda_gen*sta*L)/1e6,reshape((assoc_STA_b_avg./sta).*100,1,length(lambda_gen)))
-    plot((lambda_gen*sta*L)/1e6,reshape((assoc_STA_c_avg./sta).*100,1,length(lambda_gen)))
-    plot((lambda_gen*sta*L)/1e6,reshape((assoc_STA_d_avg./sta).*100,1,length(lambda_gen)))
-    plot((lambda_gen*sta*L)/1e6,reshape((assoc_STA_e_avg./sta).*100,1,length(lambda_gen)))
-    
-    title('Association success')
-    xlabel('Total network traffic (Mbps)')
-    ylabel('Associated STAs (%)')
-    legend(str_a,str_b,str_c,str_d,'WITHOUT Extenders')
-    
-    % Non-congested simulations(%)
-    figure
-    plot((lambda_gen*sta*L)/1e6,reshape(share_ok_a,1,length(lambda_gen)))
-    hold
-    plot((lambda_gen*sta*L)/1e6,reshape(share_ok_b,1,length(lambda_gen)))
-    plot((lambda_gen*sta*L)/1e6,reshape(share_ok_c,1,length(lambda_gen)))
-    plot((lambda_gen*sta*L)/1e6,reshape(share_ok_d,1,length(lambda_gen)))
-    plot((lambda_gen*sta*L)/1e6,reshape(share_ok_e,1,length(lambda_gen)))
-    
-    title('Non-congested simulations')
-    xlabel('Total network traffic (Mbps)')
-    ylabel('Non-congested simulations (%)')
-    legend(str_a,str_b,str_c,str_d,'WITHOUT Extenders')
 end

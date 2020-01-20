@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.17 (TeX Live 2016) (preloaded format=pdflatex 2016.12.1)  9 JAN 2020 11:27
+This is pdfTeX, Version 3.14159265-2.6-1.40.17 (TeX Live 2016) (preloaded format=pdflatex 2016.12.1)  20 JAN 2020 11:48
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -113,7 +113,11 @@ LaTeX Font Info:    Font shape `OT1/ptm/bx/it' in size <24> not available
 \IEEEPARstartletwidth=\dimen125
 \c@IEEEbiography=\count93
 \@IEEEtranrubishbin=\box27
-) (/usr/local/texlive/2016/texmf-dist/tex/latex/graphics/graphicx.sty
+) (/usr/local/texlive/2016/texmf-dist/tex/latex/url/url.sty
+\Urlmuskip=\muskip10
+Package: url 2013/09/16  ver 3.4  Verb mode for urls, etc.
+)
+(/usr/local/texlive/2016/texmf-dist/tex/latex/graphics/graphicx.sty
 Package: graphicx 2014/10/28 v1.0g Enhanced LaTeX Graphics (DPC,SPQR)
 
 (/usr/local/texlive/2016/texmf-dist/tex/latex/graphics/keyval.sty
@@ -355,8 +359,8 @@ pdfTeX warning: /Library/TeX/texbin/pdflatex (file ./network_slicing_ofdma.pdf)
 File: overview_learning_approaches.pdf Graphic file (type pdf)
 
 <use overview_learning_approaches.pdf>
-Package pdftex.def Info: overview_learning_approaches.pdf used on input line 61
-1.
+Package pdftex.def Info: overview_learning_approaches.pdf used on input line 60
+9.
 (pdftex.def)             Requested size: 252.0pt x 222.72096pt.
  [4 <./itu_ml_architecture.pdf
 
@@ -364,68 +368,73 @@ pdfTeX warning: /Library/TeX/texbin/pdflatex (file ./itu_ml_architecture.pdf):
 PDF inclusion: invalid other resource which is no dict (key 'ProcSets', type <a
 rray>); ignored.
 >]
-Underfull \hbox (badness 2293) in paragraph at lines 639--640
+Underfull \hbox (badness 2293) in paragraph at lines 643--644
 \OT1/ptm/m/n/10 pu-ta-tion and stor-age re-sources may also be lim-
  []
 
 
-Underfull \vbox (badness 1117) has occurred while \output is active []
+Underfull \hbox (badness 1406) in paragraph at lines 672--673
+[]\OT1/ptm/m/n/10 To il-lus-trate this (see Fig. 4[]), let us re-take the AP
+ []
 
- [5 <./overview_learning_approaches.pdf
+[5 <./overview_learning_approaches.pdf
 
 pdfTeX warning: /Library/TeX/texbin/pdflatex (file ./overview_learning_approach
 es.pdf): PDF inclusion: invalid other resource which is no dict (key 'ProcSets'
 , type <array>); ignored.
->]
-Underfull \hbox (badness 1406) in paragraph at lines 668--669
-[]\OT1/ptm/m/n/10 To il-lus-trate this (see Fig. 4[]), let us re-take the AP
- []
-
-<ml_architecture_wlan_2.pdf, id=179, 612.36775pt x 386.4036pt>
+>] <ml_architecture_wlan_2.pdf, id=179, 612.36775pt x 386.4036pt>
 File: ml_architecture_wlan_2.pdf Graphic file (type pdf)
 
 <use ml_architecture_wlan_2.pdf>
-Package pdftex.def Info: ml_architecture_wlan_2.pdf used on input line 671.
+Package pdftex.def Info: ml_architecture_wlan_2.pdf used on input line 675.
 (pdftex.def)             Requested size: 252.0pt x 159.01021pt.
+
+<results_use_case.png, id=180, 503.84235pt x 471.56175pt>
+File: results_use_case.png Graphic file (type png)
+
+<use results_use_case.png>
+Package pdftex.def Info: results_use_case.png used on input line 706.
+(pdftex.def)             Requested size: 226.79846pt x 212.27278pt.
  [6 <./ml_architecture_wlan_2.pdf
 
 pdfTeX warning: /Library/TeX/texbin/pdflatex (file ./ml_architecture_wlan_2.pdf
 ): PDF inclusion: invalid other resource which is no dict (key 'ProcSets', type
  <array>); ignored.
 >]
-Underfull \hbox (badness 2020) in paragraph at lines 802--803
+Underfull \hbox (badness 2020) in paragraph at lines 719--720
 \OT1/ptm/m/n/10 2015-0502, 2017-SGR-11888, by WIND-MAL PGC2018-
  []
 
 (./flexible_ml_architecture_wlans.bbl
-Underfull \hbox (badness 4967) in paragraph at lines 86--89
+Underfull \hbox (badness 4967) in paragraph at lines 88--91
 []\OT1/ptm/m/n/8 Yujun Lin \OT1/ptm/m/it/8 et al.\OT1/ptm/m/n/8 , ``Deep gra-di
 -ent com-pres-sion: Re-duc-ing the
  []
 
-) [7] (./flexible_ml_architecture_wlans.aux) ) 
+) [7 <./results_use_case.png>] (./flexible_ml_architecture_wlans.aux) ) 
 Here is how much of TeX's memory you used:
- 3181 strings out of 493014
- 49912 string characters out of 6133351
- 129656 words of memory out of 5000000
- 6674 multiletter control sequences out of 15000+600000
- 44271 words of font info for 89 fonts, out of 8000000 for 9000
+ 3260 strings out of 493014
+ 50941 string characters out of 6133351
+ 130741 words of memory out of 5000000
+ 6747 multiletter control sequences out of 15000+600000
+ 45856 words of font info for 91 fonts, out of 8000000 for 9000
  1144 hyphenation exceptions out of 8191
- 38i,10n,35p,1392b,247s stack positions out of 5000i,500n,10000p,200000b,80000s
-{/usr/local/texlive/2016/texmf-di
-st/fonts/enc/dvips/base/8r.enc}</usr/local/texlive/2016/texmf-dist/fonts/type1/
-public/amsfonts/cm/cmmi10.pfb></usr/local/texlive/2016/texmf-dist/fonts/type1/p
-ublic/amsfonts/cm/cmr10.pfb></usr/local/texlive/2016/texmf-dist/fonts/type1/pub
-lic/amsfonts/cm/cmr7.pfb></usr/local/texlive/2016/texmf-dist/fonts/type1/public
-/amsfonts/cm/cmsy7.pfb></usr/local/texlive/2016/texmf-dist/fonts/type1/public/a
-msfonts/symbols/msbm10.pfb></usr/local/texlive/2016/texmf-dist/fonts/type1/urw/
-times/utmb8a.pfb></usr/local/texlive/2016/texmf-dist/fonts/type1/urw/times/utmb
-i8a.pfb></usr/local/texlive/2016/texmf-dist/fonts/type1/urw/times/utmr8a.pfb></
-usr/local/texlive/2016/texmf-dist/fonts/type1/urw/times/utmri8a.pfb>
-Output written on flexible_ml_architecture_wlans.pdf (7 pages, 993988 bytes).
+ 38i,10n,35p,1520b,274s stack positions out of 5000i,500n,10000p,200000b,80000s
+{/usr/lo
+cal/texlive/2016/texmf-dist/fonts/enc/dvips/base/8r.enc}</usr/local/texlive/201
+6/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></usr/local/texlive/2016
+/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/local/texlive/2016/t
+exmf-dist/fonts/type1/public/amsfonts/cm/cmr7.pfb></usr/local/texlive/2016/texm
+f-dist/fonts/type1/public/amsfonts/cm/cmsy7.pfb></usr/local/texlive/2016/texmf-
+dist/fonts/type1/public/amsfonts/symbols/msbm10.pfb></usr/local/texlive/2016/te
+xmf-dist/fonts/type1/urw/times/utmb8a.pfb></usr/local/texlive/2016/texmf-dist/f
+onts/type1/urw/times/utmbi8a.pfb></usr/local/texlive/2016/texmf-dist/fonts/type
+1/urw/times/utmr8a.pfb></usr/local/texlive/2016/texmf-dist/fonts/type1/urw/time
+s/utmri8a.pfb>
+Output written on flexible_ml_architecture_wlans.pdf (7 pages, 1351688 bytes).
 PDF statistics:
- 263 PDF objects out of 1000 (max. 8388607)
- 155 compressed objects within 2 object streams
+ 266 PDF objects out of 1000 (max. 8388607)
+ 156 compressed objects within 2 object streams
  0 named destinations out of 1000 (max. 500000)
- 21 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 26 words of extra memory for PDF output out of 10000 (max. 10000000)
 

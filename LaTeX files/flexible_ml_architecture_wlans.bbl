@@ -39,7 +39,8 @@
   Management (ZSM); Reference Architecture},'' 2019.
 
 \bibitem{itu2019use}
-``{ITU-T Y.ML-IMT2020-Use-Cases (TD407/WP1)},'' 2019.
+{ITU-T Supp. Y.Supp55}, ``Machine learning in future networks including
+  imt-2020: use cases,'' 2019.
 
 \bibitem{mitchell1997machine}
 {Mitchell, Tom M and others}, ``{Machine learning},'' \emph{Burr Ridge, IL:
@@ -75,7 +76,8 @@
   92--99, 2018.
 
 \bibitem{itu2019data}
-``{ITU-T Y.ML-IMT2020-Data-Handling (TD409/WP1)},'' 2019.
+{ITU-T Rec. Y.3174}, ``{Framework for data handling to enable machine learning
+  in future networks including IMT-2020},'' 2019.
 
 \bibitem{barrachina2019komondor}
 {Sergio Barrachina-Mu{\~n}oz \textit{et al.}}, ``{Komondor: a Wireless Network
