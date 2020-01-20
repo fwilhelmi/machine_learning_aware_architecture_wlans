@@ -35,15 +35,15 @@ The simulation parameters are as follows:
 |     | **Parameter**               | **Value**                                                                                                                         |
 |-----|-----------------------------|-----------------------------------------------------------------------------------------------------------------------------------|
 | PHY | Central frequency           | 5 GHz                                                                                                                             |
-|     | Path-loss model             | See [1](#IEEE 802.11ax Residential scenario (https://mentor.ieee.org/802.11/dcn/14/11-14-0980-16-00ax-simulation-scenarios.docx)) |
+|     | Path-loss model             | See [IEEE 802.11ax Residential scenario](https://mentor.ieee.org/802.11/dcn/14/11-14-0980-16-00ax-simulation-scenarios.docx) |
 |     | Tx gain / Rx gain           | 0 / O dB                                                                                                                          |
 |     | Background noise            | -95 dBm                                                                                                                           |
-|     | Legacy OFDM symbol duration | 4 $\mu$s                                                                                                                          |
-|     | OFDM symbol duration        | 16 $\mu$s                                                                                                                         |
+|     | Legacy OFDM symbol duration | 4 micro s                                                                                                                          |
+|     | OFDM symbol duration        | 16 micro s                                                                                                                       |
 |     | No. of spatial streams      | 2                                                                                                                                 |
 |     | Tx power                    | 20 dBm                                                                                                                            |
 |     | Rx sensitivity              | -90 dBm                                                                                                                           |
-| MAC | SIFS / DIFS duration        | 16 / 34 $\mu$s                                                                                                                    |
+| MAC | SIFS / DIFS duration        | 16 / 34 micro s                                                                                                                 |
 |     | RTS / CTS length            | 160 / 112 bits                                                                                                                    |
 |     | MH / SF / TB / MD length    | 320 / 16 / 18 / 32 bits                                                                                                           |
 |     | Allowed data rates          | 14.4 to 173.4 Mbps                                                                                                                |
