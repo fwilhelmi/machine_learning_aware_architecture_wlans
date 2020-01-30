@@ -1,0 +1,25 @@
+\BOOKMARK [1][-]{section.1}{Introduction}{}% 1
+\BOOKMARK [1][-]{section.2}{Machine Learning as Enabler of Future Wireless Networks}{}% 2
+\BOOKMARK [2][-]{subsection.2.1}{Machine Learning in Communications}{section.2}% 3
+\BOOKMARK [2][-]{subsection.2.2}{Machine Learning-Enabled Use Cases in WLANs}{section.2}% 4
+\BOOKMARK [3][-]{subsubsection.2.2.1}{OFDMA-Based Smart Network Slicing}{subsection.2.2}% 5
+\BOOKMARK [3][-]{subsubsection.2.2.2}{Cloud-Based User Association and Handover}{subsection.2.2}% 6
+\BOOKMARK [3][-]{subsubsection.2.2.3}{Inference-Based Coordinated Scheduling}{subsection.2.2}% 7
+\BOOKMARK [3][-]{subsubsection.2.2.4}{Reinforcement Learning-Based Spatial Reuse}{subsection.2.2}% 8
+\BOOKMARK [1][-]{section.3}{ITU Unified Architecture for Future Networks}{}% 9
+\BOOKMARK [2][-]{subsection.3.1}{Management Subsystem}{section.3}% 10
+\BOOKMARK [2][-]{subsection.3.2}{Multi-Level Machine Learning Pipeline}{section.3}% 11
+\BOOKMARK [2][-]{subsection.3.3}{Closed-loop Subsystem}{section.3}% 12
+\BOOKMARK [1][-]{section.4}{Machine Learning-Aware Architecture for IEEE 802.11 WLANs}{}% 13
+\BOOKMARK [2][-]{subsection.4.1}{Challenges in IEEE 802.11 WLANs}{section.4}% 14
+\BOOKMARK [2][-]{subsection.4.2}{Computation Paradigms in IEEE 802.11 WLANs}{section.4}% 15
+\BOOKMARK [2][-]{subsection.4.3}{Realization of the ML-Aware Architecture for WLANs}{section.4}% 16
+\BOOKMARK [1][-]{section.5}{Concluding Remarks}{}% 17
+\BOOKMARK [1][-]{section*.2}{References}{}% 18
+\BOOKMARK [1][-]{IEEEbiography.0}{Biographies}{}% 19
+\BOOKMARK [2][-]{IEEEbiography.1}{Francesc Wilhelmi}{IEEEbiography.0}% 20
+\BOOKMARK [2][-]{IEEEbiography.2}{Sergio Barrachina-Mu\361oz}{IEEEbiography.0}% 21
+\BOOKMARK [2][-]{IEEEbiography.3}{Boris Bellalta}{IEEEbiography.0}% 22
+\BOOKMARK [2][-]{IEEEbiography.4}{Cristina Cano}{IEEEbiography.0}% 23
+\BOOKMARK [2][-]{IEEEbiography.5}{Anders Jonsson}{IEEEbiography.0}% 24
+\BOOKMARK [2][-]{IEEEbiography.6}{Vishnu Ram}{IEEEbiography.0}% 25

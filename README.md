@@ -13,12 +13,15 @@ Lots of hopes have been placed in Machine Learning (ML) as a key enabler of futu
 This repository contains the LaTeX files used for the magazine article "A Flexible Machine Learning-Aware Architecture for Future WLANs", which has been sent to "IEEE Communications Magazine".
 
 ### Simulation Results
-The results that are presented in this paper have been obtained from the IEEE 802.11 standard-compliant simulation framework available at [https://github.com/toniadame/WiFi_AP_Selection_Framework](https://github.com/toniadame/WiFi_AP_Selection_Framework). **Disclaimer:** the code provided in this repository has been integrated to the AP association framework.
+The results that are presented in this paper have been obtained from the IEEE 802.11 standard-compliant simulation framework available at [https://github.com/toniadame/WiFi_AP_Selection_Framework](https://github.com/toniadame/WiFi_AP_Selection_Framework). 
+
+**Disclaimer:** the code provided in this repository has been integrated to the AP association framework.
 
 In particular, we demonstrated the superiority of the ITU-T's architecture by showcasing the benefits of applying an ML-enabled AP (re)association solution. Specifically, we have used a Vanilla Neural Network (NN) approach, which has been trained with the data obtained from 100,000 random deployments. The simulation scenario comprises dense deployments with variable number of STAs and traffic load. The following Table summarizes the characteristics of the considered random deployments:
 
 | **Parameter**    | **Value**        |
 |------------------|------------------|
+| Map size         | 40x40 m          |
 | Number of STAs   | 1-24             |
 | Load of STAs     | 1-15 Mbps        |
 | Type of traffic  | Uplink           |
@@ -32,27 +35,29 @@ An example of a random deployment is illustrated in the following Figure:
 
 The simulation parameters are as follows:
 
-|     | **Parameter**               | **Value**                                                                                                                         |
-|-----|-----------------------------|-----------------------------------------------------------------------------------------------------------------------------------|
-| PHY | Central frequency           | 5 GHz                                                                                                                             |
-|     | Path-loss model             | See [IEEE 802.11ax Residential scenario](https://mentor.ieee.org/802.11/dcn/14/11-14-0980-16-00ax-simulation-scenarios.docx) |
-|     | Tx gain / Rx gain           | 0 / O dB                                                                                                                          |
-|     | Background noise            | -95 dBm                                                                                                                           |
-|     | Legacy OFDM symbol duration | 4 micro s                                                                                                                          |
-|     | OFDM symbol duration        | 16 micro s                                                                                                                       |
-|     | No. of spatial streams      | 2                                                                                                                                 |
-|     | Tx power                    | 20 dBm                                                                                                                            |
-|     | Rx sensitivity              | -90 dBm                                                                                                                           |
-| MAC | SIFS / DIFS duration        | 16 / 34 micro s                                                                                                                 |
-|     | RTS / CTS length            | 160 / 112 bits                                                                                                                    |
-|     | MH / SF / TB / MD length    | 320 / 16 / 18 / 32 bits                                                                                                           |
-|     | Allowed data rates          | 14.4 to 173.4 Mbps                                                                                                                |
+| **Parameter**               | **Value**                                                                                                                         |
+|-----------------------------|-----------------------------------------------------------------------------------------------------------------------------------|
+| Central frequency           | 5 GHz                                                                                                                             |
+| Path-loss model             | See [1](#IEEE 802.11ax Residential scenario (https://mentor.ieee.org/802.11/dcn/14/11-14-0980-16-00ax-simulation-scenarios.docx)) |
+| Tx gain / Rx gain           | 0 / 0 dB                                                                                                                          |
+| Background noise            | -95 dBm                                                                                                                           |
+| Legacy OFDM symbol duration | 4 $\mu$s                                                                                                                          |
+| OFDM symbol duration        | 16 $\mu$s                                                                                                                         |
+| No. of spatial streams      | 2                                                                                                                                 |
+| Tx power                    | 20 dBm                                                                                                                            |
+| Rx sensitivity              | -90 dBm                                                                                                                           |
+| SIFS / DIFS duration        | 16 / 34 $\mu$s                                                                                                                    |
+| RTS / CTS length            | 160 / 112 bits                                                                                                                    |
+| MH / SF / TB / MD length    | 320 / 16 / 18 / 32 bits                                                                                                           |
+| Allowed data rates          | 14.4 to 173.4 Mbps                                                                                                                |
 
-To generate the dataset (see [output_stas.csv](https://github.com/fwilhelmi/machine_learning_aware_architecture_wlans/blob/master/Other%20resources/use_case_ap_selection/output_stas.csv)), we have employed function [generate_data_set.m](https://github.com/fwilhelmi/machine_learning_aware_architecture_wlans/blob/master/Other%20resources/use_case_ap_selection/generate_data_set.m). The training procedure that generates our throughput prediction function is found at [neural_net_train.m](https://github.com/fwilhelmi/machine_learning_aware_architecture_wlans/blob/master/Other%20resources/use_case_ap_selection/neural_net_train.m) (the output used in the paper is [nn_function.mat](https://github.com/fwilhelmi/machine_learning_aware_architecture_wlans/blob/master/Other%20resources/use_case_ap_selection/nn_function.mat). The features considered for training are:
+To generate the dataset (see [output_stas.csv](https://github.com/fwilhelmi/machine_learning_aware_architecture_wlans/blob/master/Other%20resources/use_case_ap_selection/output_stas.csv)), we have employed function [generate_data_set.m](https://github.com/fwilhelmi/machine_learning_aware_architecture_wlans/blob/master/Other%20resources/use_case_ap_selection/generate_data_set.m). The training procedure that generates our throughput prediction function is found at [neural_net_train.m](https://github.com/fwilhelmi/machine_learning_aware_architecture_wlans/blob/master/Other%20resources/use_case_ap_selection/neural_net_train.m) (the output used in the paper is [nn_function.mat](https://github.com/fwilhelmi/machine_learning_aware_architecture_wlans/blob/master/Other%20resources/use_case_ap_selection/nn_function.mat). In particular, we have used a feed-forward deep neural network with layers of 16, 8, and 4 neurons (more information [here](https://es.mathworks.com/help/deeplearning/ref/feedforwardnet.html;jsessionid=298dc8668e8e2bd84140ed8f956b)). The training, validation and testing ratios were 0.8, 0.1, and 0.1, respectively. The total number of considered epochs was 30. The features considered for training were:
 1. Rate STA [bps]: the rate at which a given STA can transmit to a specific AP (based on the maximum allowed MCS).
 2. Load STA [bps]: the traffic load generated at the STA, based on different application requirements.
 3. Delivery ratio AP [%]: percentage of load that a given AP is able to process before a new (re)association.
 4. Load AP [bps]: amount of load that the AP is serving before a new (re)association.
+
+The complete dataset can be found at [![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.3626691.svg)](https://doi.org/10.5281/zenodo.3626691).
 
 Our results compare the standard Strongest Signal First (SSF) with the NN approach. In total, 50 random deployments are considered for averaging purposes. The following Figure shows the obtained results for a variable number of STAs:
 

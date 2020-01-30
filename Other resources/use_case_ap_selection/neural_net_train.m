@@ -40,12 +40,10 @@ num_original_samples = size(T,1);
 
 new_T = T;
 
-%%
+%% Plot the empirical PDF of the input features
 
 L = 12000;  % Fixed packet size [b]
 
-% Convert table to arrays
-% X = [T(:,2)/90 T(:,4)/144.4 T(:,5) T(:,6)/1000];
 figure
 sgtitle('Empirical PDF of the input features')
 
@@ -109,8 +107,7 @@ xlabel('thr')
 
 %%  TRAIN ARTIFICIAL NEURAL NETWORK
 
-fprintf("\n\n*** TRAIN ARTIFICIAL NEURAL NETWORK ***\n")
-
+fprintf("\n\n*** TRAINING ARTIFICIAL NEURAL NETWORK ***\n")
 num_samples = length(rate_bps_scaled);
 
 % Dataset
@@ -130,7 +127,6 @@ fprintf('No. of samples testing dataset: %d\n',length(X_test))
 
 % no. of hidden layers
 net = feedforwardnet([16 8 4]);
-%net.trainParam.mu_max = 1e10;
 net.divideParam.trainRatio = 0.80; % training set [%]
 net.divideParam.valRatio = 0.10; % validation set [%]
 net.divideParam.testRatio = 0.10; % test set [%]
@@ -141,8 +137,6 @@ fprintf("Training ANN...\n")
 fprintf("- Training completed!\n")
 %%
 %---------------------------------
-% view net
-%view (net)
 % simulate a network over complete input range
 Y_pred_train = net(X_train);
 mse = immse(Y_pred_train,Y_train);
@@ -160,16 +154,10 @@ fprintf("- MSE: %f\n", mse)
 fprintf("- MAE: %f [%%]\n", mae)
 fprintf("- MAE: %f Mbps\n", mae * max(throughput_sta) * L * 1e-6)
 
-% %%
-% load('nn_function.mat')
-% X = [0.1 0.2 0.3 0.4 0.5]';
-% caro = net(X);
-%
-%%
+% Save the NN function
 save('nn_function.mat', 'net');
 
-%%
-
+%% Plot the error
 num_deploys_to_plot = 20;
 figure
 
@@ -179,9 +167,7 @@ for ix_ventena = 1:num_deploys_to_plot
     
     first_ix_sample = (ix_ventena-1) * stas_comb_per_deploy + 1;
     last_ix_sample = (ix_ventena-1) * stas_comb_per_deploy + stas_comb_per_deploy;
-    
-%     fprintf('first_ix_sample = %d, last_ix_sample = %d\n', first_ix_sample, last_ix_sample)
-    
+        
     for ix_sample = first_ix_sample : last_ix_sample
                 
         x = X_train(:,ix_sample);
@@ -189,11 +175,6 @@ for ix_ventena = 1:num_deploys_to_plot
         
         y_pred = net(x);
         mae(ix_sample - first_ix_sample + 1) = abs(y - y_pred);
-%         fprintf("- Output (real/pred): %.2f /%.2f \n", y, y_pred)
-%         fprintf("- Output (real/pred): %.2f /%.2f pkt/s\n", y * THROUGHPUT_MAX, y_pred *THROUGHPUT_MAX)
-%         fprintf("- Output (real/pred): %.2f /%.2f Mbps\n", y * max(throughput_sta) * L * 1e-6, y_pred * max(throughput_sta) * L * 1e-6)
-%         fprintf("- MAE: %f [%%]\n", mae(ix_sample))
-%         fprintf("- MAE: %f Mbps\n", mae(ix_sample) * max(throughput_sta) * L * 1e-6)
         
     end
     plot(mae .* max(throughput_sta) * L * 1e-6)

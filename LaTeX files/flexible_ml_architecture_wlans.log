@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.17 (TeX Live 2016) (preloaded format=pdflatex 2016.12.1)  20 JAN 2020 11:48
+This is pdfTeX, Version 3.14159265-2.6-1.40.17 (TeX Live 2016) (preloaded format=pdflatex 2016.12.1)  30 JAN 2020 17:31
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -113,17 +113,127 @@ LaTeX Font Info:    Font shape `OT1/ptm/bx/it' in size <24> not available
 \IEEEPARstartletwidth=\dimen125
 \c@IEEEbiography=\count93
 \@IEEEtranrubishbin=\box27
-) (/usr/local/texlive/2016/texmf-dist/tex/latex/url/url.sty
-\Urlmuskip=\muskip10
-Package: url 2013/09/16  ver 3.4  Verb mode for urls, etc.
-)
-(/usr/local/texlive/2016/texmf-dist/tex/latex/graphics/graphicx.sty
-Package: graphicx 2014/10/28 v1.0g Enhanced LaTeX Graphics (DPC,SPQR)
+) (/usr/local/texlive/2016/texmf-dist/tex/latex/hyperref/hyperref.sty
+Package: hyperref 2016/05/05 v6.83n Hypertext links for LaTeX
 
+(/usr/local/texlive/2016/texmf-dist/tex/generic/oberdiek/hobsub-hyperref.sty
+Package: hobsub-hyperref 2016/05/16 v1.14 Bundle oberdiek, subset hyperref (HO)
+
+
+(/usr/local/texlive/2016/texmf-dist/tex/generic/oberdiek/hobsub-generic.sty
+Package: hobsub-generic 2016/05/16 v1.14 Bundle oberdiek, subset generic (HO)
+Package: hobsub 2016/05/16 v1.14 Construct package bundles (HO)
+Package: infwarerr 2016/05/16 v1.4 Providing info/warning/error messages (HO)
+Package: ltxcmds 2016/05/16 v1.23 LaTeX kernel commands for general use (HO)
+Package: ifluatex 2016/05/16 v1.4 Provides the ifluatex switch (HO)
+Package ifluatex Info: LuaTeX not detected.
+Package: ifvtex 2016/05/16 v1.6 Detect VTeX and its facilities (HO)
+Package ifvtex Info: VTeX not detected.
+Package: intcalc 2016/05/16 v1.2 Expandable calculations with integers (HO)
+Package: ifpdf 2016/05/14 v3.1 Provides the ifpdf switch
+Package: etexcmds 2016/05/16 v1.6 Avoid name clashes with e-TeX commands (HO)
+Package etexcmds Info: Could not find \expanded.
+(etexcmds)             That can mean that you are not using pdfTeX 1.50 or
+(etexcmds)             that some package has redefined \expanded.
+(etexcmds)             In the latter case, load this package earlier.
+Package: kvsetkeys 2016/05/16 v1.17 Key value parser (HO)
+Package: kvdefinekeys 2016/05/16 v1.4 Define keys (HO)
+Package: pdftexcmds 2016/05/10 v0.21 Utility functions of pdfTeX for LuaTeX (HO
+)
+Package pdftexcmds Info: LuaTeX not detected.
+Package pdftexcmds Info: \pdf@primitive is available.
+Package pdftexcmds Info: \pdf@ifprimitive is available.
+Package pdftexcmds Info: \pdfdraftmode found.
+Package: pdfescape 2016/05/16 v1.14 Implements pdfTeX's escape features (HO)
+Package: bigintcalc 2016/05/16 v1.4 Expandable calculations on big integers (HO
+)
+Package: bitset 2016/05/16 v1.2 Handle bit-vector datatype (HO)
+Package: uniquecounter 2016/05/16 v1.3 Provide unlimited unique counter (HO)
+)
+Package hobsub Info: Skipping package `hobsub' (already loaded).
+Package: letltxmacro 2016/05/16 v1.5 Let assignment for LaTeX macros (HO)
+Package: hopatch 2016/05/16 v1.3 Wrapper for package hooks (HO)
+Package: xcolor-patch 2016/05/16 xcolor patch
+Package: atveryend 2016/05/16 v1.9 Hooks at the very end of document (HO)
+Package atveryend Info: \enddocument detected (standard20110627).
+Package: atbegshi 2016/05/16 v1.17 At begin shipout hook (HO)
+Package: refcount 2016/05/16 v3.5 Data extraction from label references (HO)
+Package: hycolor 2016/05/16 v1.8 Color options for hyperref/bookmark (HO)
+)
 (/usr/local/texlive/2016/texmf-dist/tex/latex/graphics/keyval.sty
 Package: keyval 2014/10/28 v1.15 key=value parser (DPC)
 \KV@toks@=\toks15
 )
+(/usr/local/texlive/2016/texmf-dist/tex/generic/ifxetex/ifxetex.sty
+Package: ifxetex 2010/09/12 v0.6 Provides ifxetex conditional
+)
+(/usr/local/texlive/2016/texmf-dist/tex/latex/oberdiek/auxhook.sty
+Package: auxhook 2016/05/16 v1.4 Hooks for auxiliary files (HO)
+)
+(/usr/local/texlive/2016/texmf-dist/tex/latex/oberdiek/kvoptions.sty
+Package: kvoptions 2016/05/16 v3.12 Key value format for package options (HO)
+)
+\@linkdim=\dimen126
+\Hy@linkcounter=\count94
+\Hy@pagecounter=\count95
+
+(/usr/local/texlive/2016/texmf-dist/tex/latex/hyperref/pd1enc.def
+File: pd1enc.def 2016/05/05 v6.83n Hyperref: PDFDocEncoding definition (HO)
+)
+\Hy@SavedSpaceFactor=\count96
+
+(/usr/local/texlive/2016/texmf-dist/tex/latex/latexconfig/hyperref.cfg
+File: hyperref.cfg 2002/06/06 v1.2 hyperref configuration of TeXLive
+)
+Package hyperref Info: Hyper figures OFF on input line 4446.
+Package hyperref Info: Link nesting OFF on input line 4451.
+Package hyperref Info: Hyper index ON on input line 4454.
+Package hyperref Info: Plain pages OFF on input line 4461.
+Package hyperref Info: Backreferencing OFF on input line 4466.
+Package hyperref Info: Implicit mode ON; LaTeX internals redefined.
+Package hyperref Info: Bookmarks ON on input line 4691.
+\c@Hy@tempcnt=\count97
+
+(/usr/local/texlive/2016/texmf-dist/tex/latex/url/url.sty
+\Urlmuskip=\muskip10
+Package: url 2013/09/16  ver 3.4  Verb mode for urls, etc.
+)
+LaTeX Info: Redefining \url on input line 5044.
+\XeTeXLinkMargin=\dimen127
+\Fld@menulength=\count98
+\Field@Width=\dimen128
+\Fld@charsize=\dimen129
+Package hyperref Info: Hyper figures OFF on input line 6298.
+Package hyperref Info: Link nesting OFF on input line 6303.
+Package hyperref Info: Hyper index ON on input line 6306.
+Package hyperref Info: backreferencing OFF on input line 6313.
+Package hyperref Info: Link coloring OFF on input line 6318.
+Package hyperref Info: Link coloring with OCG OFF on input line 6323.
+Package hyperref Info: PDF/A mode OFF on input line 6328.
+LaTeX Info: Redefining \ref on input line 6368.
+LaTeX Info: Redefining \pageref on input line 6372.
+\Hy@abspage=\count99
+\c@Item=\count100
+\c@Hfootnote=\count101
+)
+
+Package hyperref Message: Driver (autodetected): hpdftex.
+
+(/usr/local/texlive/2016/texmf-dist/tex/latex/hyperref/hpdftex.def
+File: hpdftex.def 2016/05/05 v6.83n Hyperref driver for pdfTeX
+\Fld@listcount=\count102
+\c@bookmark@seq@number=\count103
+
+(/usr/local/texlive/2016/texmf-dist/tex/latex/oberdiek/rerunfilecheck.sty
+Package: rerunfilecheck 2016/05/16 v1.8 Rerun checks for auxiliary files (HO)
+Package uniquecounter Info: New unique counter `rerunfilecheck' on input line 2
+82.
+)
+\Hy@SectionHShift=\skip44
+)
+(/usr/local/texlive/2016/texmf-dist/tex/latex/graphics/graphicx.sty
+Package: graphicx 2014/10/28 v1.0g Enhanced LaTeX Graphics (DPC,SPQR)
+
 (/usr/local/texlive/2016/texmf-dist/tex/latex/graphics/graphics.sty
 Package: graphics 2016/05/09 v1.0r Standard LaTeX Graphics (DPC,SPQR)
 
@@ -137,17 +247,10 @@ Package graphics Info: Driver file: pdftex.def on input line 96.
 
 (/usr/local/texlive/2016/texmf-dist/tex/latex/pdftex-def/pdftex.def
 File: pdftex.def 2011/05/27 v0.06d Graphics/color for pdfTeX
-
-(/usr/local/texlive/2016/texmf-dist/tex/generic/oberdiek/infwarerr.sty
-Package: infwarerr 2016/05/16 v1.4 Providing info/warning/error messages (HO)
-)
-(/usr/local/texlive/2016/texmf-dist/tex/generic/oberdiek/ltxcmds.sty
-Package: ltxcmds 2016/05/16 v1.23 LaTeX kernel commands for general use (HO)
-)
-\Gread@gobject=\count94
+\Gread@gobject=\count104
 ))
-\Gin@req@height=\dimen126
-\Gin@req@width=\dimen127
+\Gin@req@height=\dimen130
+\Gin@req@width=\dimen131
 )
 (/usr/local/texlive/2016/texmf-dist/tex/latex/amsfonts/amsfonts.sty
 Package: amsfonts 2013/01/14 v3.01 Basic AMSFonts support
@@ -193,10 +296,10 @@ Package: soul 2003/11/17 v2.4 letterspacing/underlining (mf)
 \SOUL@cmds=\toks19
 \SOUL@buffer=\toks20
 \SOUL@token=\toks21
-\SOUL@spaceskip=\skip44
-\SOUL@ttwidth=\dimen128
-\SOUL@uldp=\dimen129
-\SOUL@ulht=\dimen130
+\SOUL@spaceskip=\skip45
+\SOUL@ttwidth=\dimen132
+\SOUL@uldp=\dimen133
+\SOUL@ulht=\dimen134
 )
 (./flexible_ml_architecture_wlans.aux)
 \openout1 = `flexible_ml_architecture_wlans.aux'.
@@ -213,59 +316,48 @@ LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 357.
 LaTeX Font Info:    ... okay on input line 357.
 LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 357.
 LaTeX Font Info:    ... okay on input line 357.
+LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 357.
+LaTeX Font Info:    ... okay on input line 357.
 
 -- Lines per column: 58 (exact).
+\AtBeginShipoutBox=\box28
+Package hyperref Info: Link coloring OFF on input line 357.
+(/usr/local/texlive/2016/texmf-dist/tex/latex/hyperref/nameref.sty
+Package: nameref 2012/10/27 v2.43 Cross-referencing by name of section
+
+(/usr/local/texlive/2016/texmf-dist/tex/generic/oberdiek/gettitlestring.sty
+Package: gettitlestring 2016/05/16 v1.5 Cleanup title references (HO)
+)
+\c@section@level=\count105
+)
+LaTeX Info: Redefining \ref on input line 357.
+LaTeX Info: Redefining \pageref on input line 357.
+LaTeX Info: Redefining \nameref on input line 357.
+
+(./flexible_ml_architecture_wlans.out) (./flexible_ml_architecture_wlans.out)
+\@outlinefile=\write3
+\openout3 = `flexible_ml_architecture_wlans.out'.
+
+
 (/usr/local/texlive/2016/texmf-dist/tex/context/base/mkii/supp-pdf.mkii
 [Loading MPS to PDF converter (version 2006.09.02).]
-\scratchcounter=\count95
-\scratchdimen=\dimen131
-\scratchbox=\box28
-\nofMPsegments=\count96
-\nofMParguments=\count97
+\scratchcounter=\count106
+\scratchdimen=\dimen135
+\scratchbox=\box29
+\nofMPsegments=\count107
+\nofMParguments=\count108
 \everyMPshowfont=\toks22
-\MPscratchCnt=\count98
-\MPscratchDim=\dimen132
-\MPnumerator=\count99
-\makeMPintoPDFobject=\count100
+\MPscratchCnt=\count109
+\MPscratchDim=\dimen136
+\MPnumerator=\count110
+\makeMPintoPDFobject=\count111
 \everyMPtoPDFconversion=\toks23
-) (/usr/local/texlive/2016/texmf-dist/tex/generic/oberdiek/pdftexcmds.sty
-Package: pdftexcmds 2016/05/10 v0.21 Utility functions of pdfTeX for LuaTeX (HO
-)
-
-(/usr/local/texlive/2016/texmf-dist/tex/generic/oberdiek/ifluatex.sty
-Package: ifluatex 2016/05/16 v1.4 Provides the ifluatex switch (HO)
-Package ifluatex Info: LuaTeX not detected.
-)
-(/usr/local/texlive/2016/texmf-dist/tex/generic/oberdiek/ifpdf.sty
-Package: ifpdf 2016/05/14 v3.1 Provides the ifpdf switch
-)
-Package pdftexcmds Info: LuaTeX not detected.
-Package pdftexcmds Info: \pdf@primitive is available.
-Package pdftexcmds Info: \pdf@ifprimitive is available.
-Package pdftexcmds Info: \pdfdraftmode found.
-)
-(/usr/local/texlive/2016/texmf-dist/tex/latex/oberdiek/epstopdf-base.sty
+) (/usr/local/texlive/2016/texmf-dist/tex/latex/oberdiek/epstopdf-base.sty
 Package: epstopdf-base 2016/05/15 v2.6 Base part for package epstopdf
 
 (/usr/local/texlive/2016/texmf-dist/tex/latex/oberdiek/grfext.sty
 Package: grfext 2016/05/16 v1.2 Manage graphics extensions (HO)
-
-(/usr/local/texlive/2016/texmf-dist/tex/generic/oberdiek/kvdefinekeys.sty
-Package: kvdefinekeys 2016/05/16 v1.4 Define keys (HO)
-))
-(/usr/local/texlive/2016/texmf-dist/tex/latex/oberdiek/kvoptions.sty
-Package: kvoptions 2016/05/16 v3.12 Key value format for package options (HO)
-
-(/usr/local/texlive/2016/texmf-dist/tex/generic/oberdiek/kvsetkeys.sty
-Package: kvsetkeys 2016/05/16 v1.17 Key value parser (HO)
-
-(/usr/local/texlive/2016/texmf-dist/tex/generic/oberdiek/etexcmds.sty
-Package: etexcmds 2016/05/16 v1.6 Avoid name clashes with e-TeX commands (HO)
-Package etexcmds Info: Could not find \expanded.
-(etexcmds)             That can mean that you are not using pdfTeX 1.50 or
-(etexcmds)             that some package has redefined \expanded.
-(etexcmds)             In the latter case, load this package earlier.
-)))
+)
 Package grfext Info: Graphics extension search list:
 (grfext)             [.png,.pdf,.jpg,.mps,.jpeg,.jbig2,.jb2,.PNG,.PDF,.JPG,.JPE
 G,.JBIG2,.JB2,.eps]
@@ -300,108 +392,109 @@ Underfull \hbox (badness 10000) in paragraph at lines 460--460
  []
 
 
-Underfull \hbox (badness 1354) in paragraph at lines 460--460
-[]\OT1/ptm/m/n/8 traffic clas-si-fi-ca-tion, vir-tual topol-ogy
- []
-
-
 Overfull \hbox (1.10536pt too wide) in paragraph at lines 461--461
 []\OT1/ptm/m/n/8 Reinforcement
  []
 
 
 Underfull \hbox (badness 10000) in paragraph at lines 461--461
-[]\OT1/ptm/m/n/8 Monte Carlo, Q-learning, []state-action-
+[]\OT1/ptm/m/n/8 Monte Carlo, Q-learning, State-Action-
+ []
+
+
+Underfull \hbox (badness 6364) in paragraph at lines 461--461
+\OT1/ptm/m/n/8 Reward-State-Action (SARSA), deep Q
  []
 
 
 Underfull \hbox (badness 10000) in paragraph at lines 461--461
-\OT1/ptm/m/n/8 reward-state-action (SARSA)[], deep Q
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 461--461
-\OT1/ptm/m/n/8 learn-ing au-toma-ton, []Markov de-ci-sion
+\OT1/ptm/m/n/8 learn-ing au-toma-ton, Markov de-ci-sion
  []
 
 
 Underfull \hbox (badness 1902) in paragraph at lines 461--461
-\OT1/ptm/m/n/8 lay), []server oc-cu-pa-tion, power con-
+\OT1/ptm/m/n/8 lay), server oc-cu-pa-tion, power con-
  []
 
 [1{/usr/local/texlive/2016/texmf-var/fonts/map/pdftex/updmap/pdftex.map}
 
 
 ]
-Underfull \hbox (badness 3746) in paragraph at lines 512--513
-[]\OT1/ptm/m/n/10 Support a mas-sive amount of con-nected de-vices
- []
-
-[2] <network_slicing_ofdma.pdf, id=17, 996.8442pt x 640.31218pt>
+[2] <network_slicing_ofdma.pdf, id=146, 1004.79388pt x 640.31218pt>
 File: network_slicing_ofdma.pdf Graphic file (type pdf)
 
 <use network_slicing_ofdma.pdf>
-Package pdftex.def Info: network_slicing_ofdma.pdf used on input line 537.
-(pdftex.def)             Requested size: 252.0pt x 161.86562pt.
+Package pdftex.def Info: network_slicing_ofdma.pdf used on input line 539.
+(pdftex.def)             Requested size: 252.0pt x 160.58571pt.
 
-<itu_ml_architecture.pdf, id=18, 481.8pt x 282.0939pt>
+<itu_ml_architecture.pdf, id=147, 481.8pt x 282.0939pt>
 File: itu_ml_architecture.pdf Graphic file (type pdf)
 
 <use itu_ml_architecture.pdf>
-Package pdftex.def Info: itu_ml_architecture.pdf used on input line 566.
-(pdftex.def)             Requested size: 258.0pt x 151.06293pt.
+Package pdftex.def Info: itu_ml_architecture.pdf used on input line 564.
+(pdftex.def)             Requested size: 283.80157pt x 166.17139pt.
  [3 <./network_slicing_ofdma.pdf
 
 pdfTeX warning: /Library/TeX/texbin/pdflatex (file ./network_slicing_ofdma.pdf)
 : PDF inclusion: invalid other resource which is no dict (key 'ProcSets', type 
 <array>); ignored.
->] <overview_learning_approaches.pdf, id=66, 908.43388pt x 802.91968pt>
+>] <overview_learning_approaches.pdf, id=211, 908.43388pt x 802.91968pt>
 File: overview_learning_approaches.pdf Graphic file (type pdf)
 
 <use overview_learning_approaches.pdf>
 Package pdftex.def Info: overview_learning_approaches.pdf used on input line 60
-9.
+7.
 (pdftex.def)             Requested size: 252.0pt x 222.72096pt.
+
+Underfull \vbox (badness 4454) has occurred while \output is active []
+
  [4 <./itu_ml_architecture.pdf
 
 pdfTeX warning: /Library/TeX/texbin/pdflatex (file ./itu_ml_architecture.pdf): 
 PDF inclusion: invalid other resource which is no dict (key 'ProcSets', type <a
 rray>); ignored.
 >]
-Underfull \hbox (badness 2293) in paragraph at lines 643--644
-\OT1/ptm/m/n/10 pu-ta-tion and stor-age re-sources may also be lim-
+Underfull \hbox (badness 5133) in paragraph at lines 627--628
+\OT1/ptm/m/n/10 in WLANs, es-pe-cially in residential-like de-ploy-
  []
 
+<ml_architecture_wlan_2.pdf, id=271, 612.36775pt x 386.4036pt>
+File: ml_architecture_wlan_2.pdf Graphic file (type pdf)
 
-Underfull \hbox (badness 1406) in paragraph at lines 672--673
-[]\OT1/ptm/m/n/10 To il-lus-trate this (see Fig. 4[]), let us re-take the AP
- []
-
-[5 <./overview_learning_approaches.pdf
+<use ml_architecture_wlan_2.pdf>
+Package pdftex.def Info: ml_architecture_wlan_2.pdf used on input line 652.
+(pdftex.def)             Requested size: 252.0pt x 159.01021pt.
+ [5 <./overview_learning_approaches.pdf
 
 pdfTeX warning: /Library/TeX/texbin/pdflatex (file ./overview_learning_approach
 es.pdf): PDF inclusion: invalid other resource which is no dict (key 'ProcSets'
 , type <array>); ignored.
->] <ml_architecture_wlan_2.pdf, id=179, 612.36775pt x 386.4036pt>
-File: ml_architecture_wlan_2.pdf Graphic file (type pdf)
+>]
+Underfull \hbox (badness 1867) in paragraph at lines 679--679
+[][][][]\OT1/ptm/m/n/8 Given the nov-elty of the tech-nolo-gies stud-ied in thi
+s pa-per, our
+ []
 
-<use ml_architecture_wlan_2.pdf>
-Package pdftex.def Info: ml_architecture_wlan_2.pdf used on input line 675.
-(pdftex.def)             Requested size: 252.0pt x 159.01021pt.
 
-<results_use_case.png, id=180, 503.84235pt x 471.56175pt>
-File: results_use_case.png Graphic file (type png)
+Underfull \hbox (badness 2150) in paragraph at lines 679--679
+\OT1/ptm/m/n/8 in next-generation wire-less net-works. For the sake of re-pro-d
+ucibil-ity
+ []
 
-<use results_use_case.png>
-Package pdftex.def Info: results_use_case.png used on input line 706.
-(pdftex.def)             Requested size: 226.79846pt x 212.27278pt.
+<output_use_case_ap_association.png, id=342, 302.93175pt x 158.994pt>
+File: output_use_case_ap_association.png Graphic file (type png)
+
+<use output_use_case_ap_association.png>
+Package pdftex.def Info: output_use_case_ap_association.png used on input line 
+683.
+(pdftex.def)             Requested size: 252.0pt x 132.26581pt.
  [6 <./ml_architecture_wlan_2.pdf
 
 pdfTeX warning: /Library/TeX/texbin/pdflatex (file ./ml_architecture_wlan_2.pdf
 ): PDF inclusion: invalid other resource which is no dict (key 'ProcSets', type
  <array>); ignored.
->]
-Underfull \hbox (badness 2020) in paragraph at lines 719--720
+> <./output_use_case_ap_association.png>]
+Underfull \hbox (badness 2020) in paragraph at lines 696--697
 \OT1/ptm/m/n/10 2015-0502, 2017-SGR-11888, by WIND-MAL PGC2018-
  []
 
@@ -411,30 +504,39 @@ Underfull \hbox (badness 4967) in paragraph at lines 88--91
 -ent com-pres-sion: Re-duc-ing the
  []
 
-) [7 <./results_use_case.png>] (./flexible_ml_architecture_wlans.aux) ) 
+)
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 762.
+ [7]
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 762.
+ (./flexible_ml_architecture_wlans.aux)
+Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 762.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 762.
+Package rerunfilecheck Info: File `flexible_ml_architecture_wlans.out' has not 
+changed.
+(rerunfilecheck)             Checksum: FD5BE0D416423919B9DA13130C739272;1965.
+Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 762.
+ ) 
 Here is how much of TeX's memory you used:
- 3260 strings out of 493014
- 50941 string characters out of 6133351
- 130741 words of memory out of 5000000
- 6747 multiletter control sequences out of 15000+600000
+ 6812 strings out of 493014
+ 104975 string characters out of 6133351
+ 208022 words of memory out of 5000000
+ 10214 multiletter control sequences out of 15000+600000
  45856 words of font info for 91 fonts, out of 8000000 for 9000
- 1144 hyphenation exceptions out of 8191
- 38i,10n,35p,1520b,274s stack positions out of 5000i,500n,10000p,200000b,80000s
-{/usr/lo
-cal/texlive/2016/texmf-dist/fonts/enc/dvips/base/8r.enc}</usr/local/texlive/201
-6/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></usr/local/texlive/2016
-/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/local/texlive/2016/t
-exmf-dist/fonts/type1/public/amsfonts/cm/cmr7.pfb></usr/local/texlive/2016/texm
-f-dist/fonts/type1/public/amsfonts/cm/cmsy7.pfb></usr/local/texlive/2016/texmf-
-dist/fonts/type1/public/amsfonts/symbols/msbm10.pfb></usr/local/texlive/2016/te
-xmf-dist/fonts/type1/urw/times/utmb8a.pfb></usr/local/texlive/2016/texmf-dist/f
-onts/type1/urw/times/utmbi8a.pfb></usr/local/texlive/2016/texmf-dist/fonts/type
-1/urw/times/utmr8a.pfb></usr/local/texlive/2016/texmf-dist/fonts/type1/urw/time
-s/utmri8a.pfb>
-Output written on flexible_ml_architecture_wlans.pdf (7 pages, 1351688 bytes).
+ 1145 hyphenation exceptions out of 8191
+ 29i,10n,35p,1562b,409s stack positions out of 5000i,500n,10000p,200000b,80000s
+{/usr/local/texlive/2016/texmf-dist/fonts/enc/dvips/base/8r.enc}</usr/local/t
+exlive/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></usr/local/te
+xlive/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmr7.pfb></usr/local/texli
+ve/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy7.pfb></usr/local/texlive
+/2016/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm10.pfb></usr/local/tex
+live/2016/texmf-dist/fonts/type1/urw/times/utmb8a.pfb></usr/local/texlive/2016/
+texmf-dist/fonts/type1/urw/times/utmbi8a.pfb></usr/local/texlive/2016/texmf-dis
+t/fonts/type1/urw/times/utmr8a.pfb></usr/local/texlive/2016/texmf-dist/fonts/ty
+pe1/urw/times/utmri8a.pfb>
+Output written on flexible_ml_architecture_wlans.pdf (7 pages, 1327837 bytes).
 PDF statistics:
- 266 PDF objects out of 1000 (max. 8388607)
- 156 compressed objects within 2 object streams
- 0 named destinations out of 1000 (max. 500000)
- 26 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 457 PDF objects out of 1000 (max. 8388607)
+ 345 compressed objects within 4 object streams
+ 71 named destinations out of 1000 (max. 500000)
+ 226 words of extra memory for PDF output out of 10000 (max. 10000000)
 
