@@ -61,7 +61,7 @@ The complete dataset can be found at [![DOI](https://zenodo.org/badge/DOI/10.528
 
 Our results compare the standard Strongest Signal First (SSF) with the NN approach. In total, 50 random deployments are considered for averaging purposes. The following Figure shows the obtained results for a variable number of STAs:
 
-<img src="https://github.com/fwilhelmi/machine_learning_aware_architecture_wlans/blob/master/Other%20resources/use_case_ap_selection/results_use_case.png" alt="Results SSF vs NN"
+<img src="https://github.com/fwilhelmi/machine_learning_aware_architecture_wlans/blob/master/Other%20resources/use_case_ap_selection/output_use_case_ap_association.png" alt="Results SSF vs NN"
 	title="Results SSF vs NN" width="500" />
 
 As shown, the NN approach improves the average satisfaction obtained in all the deployments. Apart from that, it provides stability and increases fairness.
