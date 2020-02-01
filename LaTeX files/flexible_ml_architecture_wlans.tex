@@ -351,7 +351,7 @@
 
 
 % correct bad hyphenation here
-\hyphenation{op-tical net-works semi-conduc-tor ns-}
+\hyphenation{op-tical net-works semi-conduc-tor ns- however}
 
 
 \begin{document}
@@ -625,7 +625,7 @@ The application of ML methods in WLANs is tightly tied to the technological chal
 	\item \textbf{Non-stationarity:} channel fluctuations due to multipath fading, mobility of users and varying traffic needs entail a big challenge to ML applications. As a result of network dynamics, adaptability should be granted by continuously retraining ML models.
 	\item \textbf{Limited communication resources:} since Wi-Fi operates under unlicensed bands, resources are scarce and shared. Hence, any potential communication required by a certain ML mechanism (as for distributed learning) may fail or be delayed if the medium is congested. As a result, the ML operation must be robust and resilient enough to react to potential communication issues.
 	\item \textbf{Limited computation and storage resources:} computation and storage resources may also be scarce in WLANs, especially in residential-like deployments. Therefore, the ML operation should include computation-efficient procedures. Another implication of limited resources lies in the availability of information to be used by ML algorithms, especially for online learning methods.
-	\item \textbf{Adversarial environment:} in many cases, Wi-Fi deployments are chaotic in the sense that many overlapping BSSs coexist without any kind of cooperation. This is a particularly interesting challenge for ML methods, which may lead to adversarial settings where different agents compete for the same resources. Moreover, multi-vendor devices may implement different ML mechanisms, leading to clashing interests.
+	\item \textbf{Adversarial environment:} in many cases, Wi-Fi deployments are chaotic in the sense that many overlapping BSSs coexist without cooperation. This is a particularly interesting challenge for ML methods, where competition among agents may lead to an adversarial setting. Moreover, multi-vendor devices may implement different ML mechanisms, leading to clashing interests.
 	\item \textbf{Legacy devices:} BSSs may coexist with other legacy devices that do not perform any intelligent operation. It is then required for ML methods to be aware of those devices, so that unfair situations are avoided.
 \end{enumerate}
 
@@ -676,12 +676,12 @@ Finally, it is worth pointing out the role of the sandbox, which can be mainly t
 	\item \textbf{Preliminary model testing:} alternatively, the sandbox can be used to validate the output of the ML method before being applied to the real network.
 \end{enumerate}
 
-To showcase the potential of the ML-based architecture through numerical results,\footnote{Given the novelty of the technologies studied in this paper, our results have been obtained from well-know standard-compliant models, hence their accuracy is tied to them. Nevertheless, this is a first step to understand the potential benefits of using an ML-based architecture in next-generation wireless networks. For the sake of reproducibility and disclosure, all the source code is open and publicly available at \href{https://github.com/fwilhelmi/machine_learning_aware_architecture_wlans}{https://github.com/fwilhelmi/machine\_learning\_aware\_architecture\_wlans}, accessed on 31 January 2020.} we compare the performance of classical AP association procedure (SSF) against a novel ML-based approach (based on vanilla neural networks). In particular, the neural network predicts the throughput that an STA will obtain after associating to a given AP based on a set of features or characteristics (e.g., current load, received signal strength). Figure \ref{fig:results_use_case} shows the throughput received by each STA versus the load it generates, for different deployment densities. We observe that the ML approach improves the average performance and balances the results obtained by all the STAs. This is because the ML function can capture complex patterns from dense deployments, thus guaranteeing minimum throughput requirements to STAs (at the expense of missing the maximum performance peaks).
+To showcase the potential of the ML-based architecture through numerical results,\footnote{Given the novelty of the technologies studied in this paper, our results have been obtained from well-know standard-compliant models, hence their accuracy is tied to them. Nevertheless, this is a first step to understand the potential benefits of using an ML-based architecture in next-generation wireless networks. For the sake of reproducibility and disclosure, all the source code is open and publicly available at \href{https://github.com/fwilhelmi/machine_learning_aware_architecture_wlans}{https://github.com/fwilhelmi/machine\_learning\_aware\_architecture\_wlans}, accessed January 31, 2020.} we compare the performance of classical AP association procedure (SSF) against a novel ML-based approach (based on vanilla neural networks). In particular, the neural network predicts the throughput that an STA will obtain after associating to a given AP based on a set of features or characteristics (e.g., current load, received signal strength). Figure \ref{fig:results_use_case} shows the throughput received by each STA versus the load it generates, for different deployment densities. We observe that the ML approach improves the average performance and balances the results obtained by all the STAs. This is because the ML function can capture complex patterns from dense deployments, thus guaranteeing minimum throughput requirements to STAs (at the expense of missing the maximum performance peaks).
 
 \begin{figure}[ht!]
 	\centering
 	\includegraphics[width=\columnwidth]{output_use_case_ap_association}
-	\caption{Performance evaluation of the AP association problem in WLANs. SSF and Neural Network (NN) approaches are compare. The mean performance of each mechanism is represented by a green dot.}
+	\caption{Performance evaluation of the AP association problem in WLANs: SSF versus Neural Network (NN). The mean performance of each mechanism is represented by a green dot.}
 	\label{fig:results_use_case}
 \end{figure}
 
