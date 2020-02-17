@@ -39,8 +39,8 @@
   Management (ZSM); Reference Architecture},'' 2019.
 
 \bibitem{itu2019use}
-{ITU-T Supp. Y.Supp55}, ``Machine learning in future networks including
-  imt-2020: use cases,'' 2019.
+{ITU-T Supp. Y.Supp55}, ``{Machine learning in future networks including
+  IMT-2020: use cases},'' 2019.
 
 \bibitem{mitchell1997machine}
 {Mitchell, Tom M and others}, ``{Machine learning},'' \emph{Burr Ridge, IL:
@@ -54,7 +54,7 @@
 \bibitem{zhang2019deep}
 {Zhang, Chaoyun and Patras, Paul and Haddadi, Hamed}, ``{Deep learning in
   mobile and wireless networking: A survey},'' \emph{IEEE Comm. Surveys \&
-  Tutorials}, 2019.
+  Tutorials}, vol.~21, no.~3, pp. 2224--2287, 2019.
 
 \bibitem{usama2019unsupervised}
 {Muhammad Usama \textit{et al.}}, ``{Unsupervised machine learning for
@@ -85,8 +85,8 @@
   Days}.\hskip 1em plus 0.5em minus 0.4em\relax IEEE, 2019, pp. 1--8.
 
 \bibitem{lin2017deep}
-{Yujun Lin \textit{et al.}}, ``{Deep gradient compression: Reducing the
-  communication bandwidth for distributed training},'' \emph{arXiv preprint
-  arXiv:1712.01887}, 2017.
+{Yujun Lin \textit{et al.}}, ``{Deep Gradient Compression: Reducing the
+  Communication Bandwidth for Distributed Training},'' in \emph{ICLR}, 2018;
+  \url{{https://openreview.net/forum?id=SkhQHMW0W}}, accessed on Jan. 31, 2020.
 
 \end{thebibliography}

@@ -20,43 +20,43 @@ Warning--empty journal in itu2019data
 Done.
 You've used 15 entries,
             4087 wiz_defined-function locations,
-            899 strings with 9421 characters,
-and the built_in function-call counts, 8902 in all, are:
-= -- 756
-> -- 117
-< -- 78
-+ -- 75
+            903 strings with 9488 characters,
+and the built_in function-call counts, 9611 in all, are:
+= -- 819
+> -- 127
+< -- 91
++ -- 83
 - -- 21
-* -- 404
-:= -- 1484
+* -- 442
+:= -- 1565
 add.period$ -- 31
 call.type$ -- 15
-change.case$ -- 15
-chr.to.int$ -- 171
+change.case$ -- 16
+chr.to.int$ -- 201
 cite$ -- 20
-duplicate$ -- 676
-empty$ -- 715
+duplicate$ -- 713
+empty$ -- 765
 format.name$ -- 15
-if$ -- 2017
+if$ -- 2193
 int.to.chr$ -- 0
 int.to.str$ -- 15
-missing$ -- 98
+missing$ -- 104
 newline$ -- 68
 num.names$ -- 15
-pop$ -- 193
+pop$ -- 197
 preamble$ -- 1
 purify$ -- 0
 quote$ -- 2
-skip$ -- 692
+skip$ -- 752
 stack$ -- 0
-substring$ -- 429
-swap$ -- 511
-text.length$ -- 21
+substring$ -- 501
+swap$ -- 560
+text.length$ -- 24
 text.prefix$ -- 0
 top$ -- 5
 type$ -- 15
 warning$ -- 5
-while$ -- 47
+while$ -- 51
 width$ -- 17
-write$ -- 158
+write$ -- 162
 (There were 5 warnings)
